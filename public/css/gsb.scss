@@ -1,0 +1,129 @@
+@mixin transparentBG($opacity : 50) {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$opacity})"; /* IE 8 */
+    filter: alpha(opacity=$opacity); /* IE 5-7 */
+    -moz-opacity: ($opacity/100); /* Netscape */
+    -khtml-opacity: ($opacity/100); /* Safari 1.x */
+    opacity: ($opacity / 100); /* Good browsers */
+}
+
+@mixin bottomShadow() {
+    -webkit-box-shadow: 0 8px 6px -6px #aaa;
+    -moz-box-shadow: 0 8px 6px -6px #aaa;
+    box-shadow: 0 8px 6px -6px #aaa;
+}
+
+$break-small: 320px;
+$break-large: 1200px;
+
+$width-large: 940px; /* 940px/16px */
+
+/*****[ Layout ]***************************************************************/
+div[role="page-header"] {
+    position: fixed;
+    z-index: 100;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 4.6875em; /* 75px/16px */
+    background-color: #fff;
+    @include transparentBG(90);
+    @include bottomShadow();
+
+    .inner {
+        position: relative;
+        width: $width-large;
+        height: 100%;
+        margin: 0 auto;
+
+        .logo {
+            font-size: 2.5em; /* 40px/16px */
+            font-family: 'Ubuntu';
+            padding-top: 0.5em; /* 20px/40px */
+            letter-spacing: 0.05em;
+
+            span {
+                font-size: 0.625em; /* 25px/40px */
+                color: #888;
+                margin-left: 0.25em; /* 10px/40px */
+            }
+        }
+    }
+}
+
+
+/*****[ General ]**************************************************************/
+*:focus {
+    outline: none;
+    border: none; }
+
+.wrapper {
+    position: relative;
+    margin-top: 4.6875em; /* 75px/16 */
+    width: $width-large; }
+
+.page-header h2 {
+    line-height: 20px; }
+
+.page-header {
+    margin-bottom: 0.7142857143em; /* 10px/14px */
+}
+
+.fixed {
+    position:fixed;
+}
+/******[ Forms ]***************************************************************/
+.form-row {
+    margin-bottom: 15px;
+
+    label {
+        margin-top: 3px;
+    }
+
+    .field-explanation {
+        font-size: 0.7142857143em; /* 10px/14px */
+        display: block;
+    }
+}
+
+.control-row {
+  padding-top: 15px;
+  border-top: solid 1px #eee; }
+
+/*****[ Navigation ]***********************************************************/
+div[role="navigation"] {
+    position: absolute;
+    top: 1.875em; /* 30px/16px */
+    right: 0px;
+
+    .main-navigation {
+        clear: both;
+        list-style-type: none;
+
+        > li {
+            float: left;
+            margin: 0 40px 0 -20px;
+
+            &:last-child {
+                margin-right: 0px;
+            }
+        }
+    }
+}
+
+.side-navigation {
+    width: 190px;
+}
+
+.container {
+  border: solid 1px #c00; }
+
+/*****[ Listing ]**************************************************************/
+.listing {
+  outline: solid 1px #0c0;
+  margin-bottom: 20px; }
+  .listing .lbl {
+    float: left;
+    width: 120px;
+    font-weight: bold; }
+  .listing .fld {
+    clear: right; }
