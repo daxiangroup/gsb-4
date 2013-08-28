@@ -1,3 +1,4 @@
 app/config/app.php
 app/config/auth.php
 app/config/database.php
+*.sass-cache*
