@@ -28,6 +28,9 @@ Route::get('/logout',           array('as'=>'logout',            'uses'=>'GSB\Lo
 Route::get('/signup',           array('as'=>'signup',            'uses'=>'GSB\SignupController@getIndex'));
 Route::post('/signup',          array('as'=>'signup.join',       'uses'=>'GSB\SignupController@postIndex'));
 
+/*****[ Welcome ]**************************************************************/
+Route::get('/welcome',          array('as'=>'welcome',           'uses'=>'GSB\WelcomeController@getIndex'));
+
 /*****[ Dashboard ]************************************************************/
 Route::get('/dashboard',        array('as'=>'dashboard',         'uses'=>'GSB\DashboardController@getIndex'));
 
