@@ -11,15 +11,22 @@
 |
 */
 
+/*
 Route::get('/', array('as'=>'home', function()
 {
 	return View::make('hello');
 }));
+*/
 
-/*****[ Login / Logout ]*******************************************************/
+/*****[ Login/Signup, Logout ]*************************************************/
+Route::get('/',                 array('as'=>'home',              'uses'=>'GSB\LoginController@getIndex'));
+
 Route::get('/login',            array('as'=>'login',             'uses'=>'GSB\LoginController@getIndex'));
 Route::post('/login',           array(                           'uses'=>'GSB\LoginController@postIndex'));
 Route::get('/logout',           array('as'=>'logout',            'uses'=>'GSB\LoginController@getLogout'));
+
+Route::get('/signup',           array('as'=>'signup',            'uses'=>'GSB\SignupController@getIndex'));
+Route::post('/signup',          array('as'=>'signup.join',       'uses'=>'GSB\SignupController@postIndex'));
 
 /*****[ Dashboard ]************************************************************/
 Route::get('/dashboard',        array('as'=>'dashboard',         'uses'=>'GSB\DashboardController@getIndex'));
@@ -28,6 +35,7 @@ Route::get('/dashboard',        array('as'=>'dashboard',         'uses'=>'GSB\Da
 Route::get('/profile',          array('as'=>'profile',           'uses'=>'GSB\ProfileController@getIndex'));
 Route::get('/profile/password', array('as'=>'profile.password',  'uses'=>'GSB\ProfileController@getPassword'));
 Route::get('/profile/settings', array('as'=>'profile.settings',  'uses'=>'GSB\ProfileController@getSettings'));
+Route::get('/profile/{id}',     array('as'=>'profile.view',      'uses'=>'GSB\ProfileController@getProfileView'));
 
 /*****[ Groups ]***************************************************************/
 Route::get('/group',            array('as'=>'group',             'uses'=>'GSB\GroupController@getIndex'));
@@ -41,4 +49,6 @@ Route::post('/group/part',      array('as'=>'group.part',        'uses'=>'GSB\Gr
 Route::get('/group/create',     array('as'=>'group.create',      'uses'=>'GSB\GroupController@getGroupCreate'));
 Route::post('/group/create',    array('as'=>'group.createSave',  'uses'=>'GSB\GroupController@postGroupCreate'));
 Route::get('/group/{id}/edit',  array('as'=>'group.edit',        'uses'=>'GSB\GroupController@getGroupEdit'))
+    ->where('id', '[0-9]+');
+Route::post('/group/{id}/edit', array('as'=>'group.editSave',    'uses'=>'GSB\GroupController@postGroupEdit'))
     ->where('id', '[0-9]+');
