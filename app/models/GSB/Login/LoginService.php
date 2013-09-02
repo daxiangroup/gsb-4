@@ -89,7 +89,7 @@ class LoginService
     {
         $ProfileRepository = App::make('ProfileRepository');
 
-        $profile  = $ProfileRepository::get_profile(Auth::user()->id);
+        $profile  = $ProfileRepository::getProfile(Auth::user()->id);
         //$settings = LoginRepository::get_settings(Auth::user()->id);
         $settings = array();
 

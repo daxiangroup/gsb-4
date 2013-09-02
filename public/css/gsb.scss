@@ -17,6 +17,8 @@ $break-large: 1200px;
 
 $width-large: 940px; /* 940px/16px */
 
+$border-color: #eee;
+
 /*****[ Layout ]***************************************************************/
 div[role="page-header"] {
     position: fixed;
@@ -70,6 +72,19 @@ div[role="page-header"] {
 
 .fixed {
     position:fixed;
+}
+
+a.btn {
+    color: #fff;
+}
+
+.row-header {
+    border-bottom: solid 1px $border-color;
+
+    & [class*="span"] {
+        font-weight: bold;
+        color: #000;
+    }
 }
 /******[ Forms ]***************************************************************/
 .form-row {
@@ -127,3 +142,40 @@ div[role="navigation"] {
     font-weight: bold; }
   .listing .fld {
     clear: right; }
+
+/*****[ Groups ]***************************************************************/
+.group-controls {
+    text-align: center;
+}
+.group-buddies {
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*****[ testing ]*/
+
+.arf [class*="span"] {
+    outline: solid 1px #c00;
+}

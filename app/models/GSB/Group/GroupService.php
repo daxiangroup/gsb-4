@@ -1,13 +1,10 @@
 <?php namespace GSB\Group;
 
-/*
-use GSB\Groups\GroupsRepository;
-use GSB\Groups\GroupsEntity;
-use GSB\Base\Exception\GSBException;
-use \Input;
-*/
 use \App;
 use \Auth;
+use \GSB\Base\GSBException;
+use \GSB\Group\GroupEntity;
+use \GSB\Group\GroupFilter;
 use \Validator;
 
 class GroupService
@@ -20,23 +17,20 @@ class GroupService
      * @param  array    $filter
      * @return array
      */
-    public static function getGroups(Array $filter = null)
+    public static function getGroups($filter = null)
     {
+        $GroupRepository = App::make('GroupRepository');
+
         // Throw execption if $filter was passed in and not an array.
         if (!is_null($filter) && !is_array($filter)) {
             GSBException::invalidArgument('$filter must be an array');
         }
 
-        $GroupFilter     = App::make('GroupFilter');
-        $GroupRepository = App::make('GroupRepository');
-        $GroupEntity     = App::make('GroupEntity');
-
         // Create a Filter.
-        //$filter = new GroupsFilter($filter);
-        $filter = new $GroupFilter($filter);
+        $filter = new GroupFilter($filter);
 
         // Grab groups from the repository, passing in a filter if provided.
-        $groups = $GroupRepository::getGroups($filter);
+        $groups = $GroupRepository->getGroups($filter);
 
         // Return the empty array if we didn't get any results from the
         // repository matching our filter.
@@ -47,7 +41,7 @@ class GroupService
         // Loop through what was returned from the repository, creating an array
         // of GroupsEntity'ies.
         foreach ($groups as $group) {
-            $output[] = new $GroupEntity($group->id, true);
+            $output[] = new GroupEntity($group->id, true);
         }
 
         return $output;
@@ -65,7 +59,6 @@ class GroupService
     public static function getMyGroups($profile_id = null)
     {
         $GroupRepository = App::make('GroupRepository');
-        $GroupEntity     = App::make('GroupEntity');
 
         // Throw an exception if $profile_id is null.
         if (is_null($profile_id)) {
@@ -84,7 +77,7 @@ class GroupService
         }
 
         // Get the groups from the repository that $profile_id is a memeber of.
-        $groups = $GroupRepository::getMyGroups($profile_id);
+        $groups = $GroupRepository->getMyGroups($profile_id);
 
         // Return an empty array if we didn't get any results from the repository
         // that our $profile_id is a member of.
@@ -94,7 +87,7 @@ class GroupService
 
         $output = array();
         foreach ($groups as $group) {
-            $output[] = new $GroupEntity($group->id, true);
+            $output[] = new GroupEntity($group->id, true);
         }
 
         return $output;
@@ -222,8 +215,6 @@ class GroupService
 
     public static function formValues($form = null, $data = null)
     {
-        $GroupEntity  = App::make('GroupEntity');
-
         if (is_null($form)) {
             GSBException::invalidArgument('$form cannot be a null value');
         }
@@ -238,29 +229,41 @@ class GroupService
 
         $values = array(
             'group-create' => array(
-                'group_name' => '',
-                'group_graduating_year' => '',
-                'group_admin' => Auth::user()->full_name,
-                'group_admin_id' => Auth::user()->id,
-                'group_co_admin' => '',
-                'group_co_admin_id' => '',
-                'group_max_size' => '',
-                'group_description' => '',
-                'group_headline' => '',
+                'group_name' => $data['group']['name'],
+                'group_graduating_year' => $data['group']['graduating_year'],
+                /*
+                'group_admin' => (is_null($data['group']->getId()) ? Auth::user()->full_name : $data['group']->getAdminName()),
+                'group_admin_id' => (is_null($data['group']->getId()) ? Auth::user()->id : $data['group']->getAdminId()),
+                'group_co_admin' => (is_null($data['group']->getId()) ? '' : $data['group']->getCoAdminName()),
+                'group_co_admin_id' => (is_null($data['group']->getId()) ? '' : $data['group']->getCoAdminId()),
+                */
+                'group_admin' => $data['group']['admin_name'],
+                'group_admin_id' => $data['group']['admin_id'],
+                'group_co_admin' => $data['group']['co_admin_name'],
+                'group_co_admin_id' => $data['group']['co_admin_id'],
+
+                'group_max_size' => $data['group']['max_size'],
+                'group_description' => $data['group']['description'],
+                'group_headline' => $data['group']['headline'],
                 'group_visibility' => array(
                     'open' => array(
-                        'value' => $GroupEntity::VAL_VISIBILITY_OPEN,
-                        'checked' => true,
+                        'value' => GroupEntity::VAL_VISIBILITY_OPEN,
+                        'checked' => ($data['group']['id'] == '' || $data['group']['visibility'] == GroupEntity::VAL_VISIBILITY_OPEN ? true : false),
                     ),
                     'closed' => array(
-                        'value' => $GroupEntity::VAL_VISIBILITY_CLOSED,
-                        'checked' => false,
+                        'value' => GroupEntity::VAL_VISIBILITY_CLOSED,
+                        'checked' => ($data['group']['visibility'] == GroupEntity::VAL_VISIBILITY_CLOSED ? true : false),
                     ),
                     'private' => array(
-                        'value' => $GroupEntity::VAL_VISIBILITY_PRIVATE,
-                        'checked' => false,
+                        'value' => GroupEntity::VAL_VISIBILITY_PRIVATE,
+                        'checked' => ($data['group']['visibility'] == GroupEntity::VAL_VISIBILITY_PRIVATE ? true : false),
                     ),
                 ),
+                'group_buddies_approval' => array(
+                    'value' => 1,
+                    'checked' => ($data['group']['buddies_approval'] == GroupEntity::VAL_BUDDIES_APPROVAL_APPROVED ? true : false),
+                ),
+                'group_meetings' => $data['group']['meetings'],
             ),
         );
 

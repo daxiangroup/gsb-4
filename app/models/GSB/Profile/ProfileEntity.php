@@ -1,11 +1,13 @@
 <?php namespace GSB\Profile;
 
+// TODO: make sure we use FLD_***** everywhere
+
 use \GSB\Profile\ProfileRepository;
 use \GSB\Base\Entity;
 use \Hash;
 
 //class ProfileEntity extends Entity
-class ProfileEntity
+class ProfileEntity extends Entity
 {
     protected $id = null;
     protected $username = null;
@@ -15,8 +17,6 @@ class ProfileEntity
     protected $graduating_year = null;
     protected $bio = null;
 
-    private $fields = array();
-
     const FLD_ID = 'id';
     const FLD_USERNAME = 'username';
     const FLD_EMAIL = 'email';
@@ -24,18 +24,20 @@ class ProfileEntity
     const FLD_FULL_NAME = 'full_name';
     const FLD_GRADUATING_YEAR = 'graduating_year';
     const FLD_BIO = 'bio';
+    const FLD_LANGUAGE = 'language';
 
     public function __construct($id = null, $hydrate = false)
     {
         $this->id = $id;
         $this->fields = array(
-            self::FLD_ID,
-            self::FLD_USERNAME,
-            self::FLD_EMAIL,
-            self::FLD_PASSWORD,
-            self::FLD_FULL_NAME,
-            self::FLD_GRADUATING_YEAR,
-            self::FLD_BIO,
+            self::FLD_ID              => 'getId',
+            self::FLD_USERNAME        => 'getUsername',
+            self::FLD_EMAIL           => 'getEmail',
+            self::FLD_PASSWORD        => 'getPassword',
+            self::FLD_FULL_NAME       => 'getFullName',
+            self::FLD_GRADUATING_YEAR => 'getGraduatingYear',
+            self::FLD_BIO             => 'getBio',
+            self::FLD_LANGUAGE        => 'getLanguage',
         );
 
         if (is_null($id)) {
@@ -117,9 +119,19 @@ class ProfileEntity
         $this->bio = $bio;
     }
 
+    public function getLanguage()
+    {
+        return $this->language;
+    }
+
+    public function setLanguage($language)
+    {
+        $this->language = $language;
+    }
+
     public function hydrate()
     {
-        $profile = ProfileRepository::get_profile($this->id);
+        $profile = ProfileRepository::getProfile($this->id);
 
         $this->setUsername($profile['username']);
         $this->setEmail($profile['email']);
@@ -127,44 +139,6 @@ class ProfileEntity
         $this->setFullName($profile['full_name']);
         $this->setGraduatingYear($profile['graduating_year']);
         $this->setBio($profile['bio']);
-    }
-
-    public function fieldsAsArray($includeId = false, $includeNull = false)
-    {
-        if ($includeId) {
-            $output[self::FLD_ID] = $this->getId();
-        }
-
-        $output[self::FLD_USERNAME] = $this->getUsername();
-        if (!$includeNull && is_null($output[self::FLD_USERNAME])) {
-            unset($output[self::FLD_USERNAME]);
-        }
-
-        $output[self::FLD_EMAIL] = $this->getEmail();
-        if (!$includeNull && is_null($output[self::FLD_EMAIL])) {
-            unset($output[self::FLD_EMAIL]);
-        }
-
-        $output[self::FLD_PASSWORD] = $this->getPassword();
-        if (!$includeNull && is_null($output[self::FLD_PASSWORD])) {
-            unset($output[self::FLD_PASSWORD]);
-        }
-
-        $output[self::FLD_FULL_NAME] = $this->getFullName();
-        if (!$includeNull && is_null($output[self::FLD_FULL_NAME])) {
-            unset($output[self::FLD_FULL_NAME]);
-        }
-
-        $output[self::FLD_GRADUATING_YEAR] = $this->getGraduatingYear();
-        if (!$includeNull && is_null($output[self::FLD_GRADUATING_YEAR])) {
-            unset($output[self::FLD_GRADUATING_YEAR]);
-        }
-
-        $output[self::FLD_BIO] = $this->getBio();
-        if (!$includeNull && is_null($output[self::FLD_BIO])) {
-            unset($output[self::FLD_BIO]);
-        }
-
-        return $output;
+        $this->setLanguage($profile['language']);
     }
 }

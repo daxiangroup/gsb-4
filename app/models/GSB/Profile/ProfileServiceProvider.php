@@ -2,7 +2,8 @@
 
 use Illuminate\Support\ServiceProvider;
 
-class ProfileServiceProvider extends ServiceProvider {
+class ProfileServiceProvider extends ServiceProvider
+{
 
     /**
      * Register the binding
@@ -13,8 +14,6 @@ class ProfileServiceProvider extends ServiceProvider {
     {
         $app = $this->app;
 
-        $app->bind('ProfileRepository', 'GSB\Profile\ProfileRepository');
-        $app->bind('ProfileEntity', 'GSB\Profile\ProfileEntity');
+        $app->bind('ProfileRepository', 'GSB\Profile\ProfileEloquentRepository');
     }
-
 }

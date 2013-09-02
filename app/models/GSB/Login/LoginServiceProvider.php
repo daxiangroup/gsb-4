@@ -2,7 +2,8 @@
 
 use Illuminate\Support\ServiceProvider;
 
-class LoginServiceProvider extends ServiceProvider {
+class LoginServiceProvider extends ServiceProvider
+{
 
     /**
      * Register the binding
@@ -15,5 +16,4 @@ class LoginServiceProvider extends ServiceProvider {
 
         $app->bind('LoginService', 'GSB\Login\LoginService');
     }
-
 }

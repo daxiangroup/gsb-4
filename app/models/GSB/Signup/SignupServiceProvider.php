@@ -1,9 +1,10 @@
-<?php namespace GSB\Group;
+<?php namespace GSB\Signup;
 
 use Illuminate\Support\ServiceProvider;
 
-class GroupServiceProvider extends ServiceProvider
+class SignupServiceProvider extends ServiceProvider
 {
+
     /**
      * Register the binding
      *
@@ -13,6 +14,6 @@ class GroupServiceProvider extends ServiceProvider
     {
         $app = $this->app;
 
-        $app->bind('GroupRepository', 'GSB\Group\GroupEloquentRepository');
+        $app->bind('SignupService', 'GSB\Signup\SignupService');
     }
 }

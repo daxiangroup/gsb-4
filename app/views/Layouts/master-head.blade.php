@@ -13,7 +13,7 @@
     @yield('page-specific-css-header')
     @yield('page-specific-js-header')
 </head>
-<body>
+<body class="@yield('page-specific-classes')">
     <div role="page-header">
         <div class="inner">
             <div class="logo">GSB<span>Group Study Buddy Y'all...</span></div>

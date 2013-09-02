@@ -73,17 +73,19 @@ class Entity
      *      value should be included in the returned array.
      * @return array
      */
-    public function fieldsAsArray($includeId = false, $includeNull = false)
+    public function fieldsAsArray($includeId = false, $includeNull = false, $ignoreFields = array())
     {
         if ($includeId) {
             $output[static::FLD_ID] = $this->{$this->fields[static::FLD_ID]}();
         }
 
+        $ignoreFields = array_merge(array(static::FLD_ID), $ignoreFields);
+
         // Looping through the field identified in the current Entity object.
         foreach ($this->fields as $field => $accessor) {
             // Ignore the FLD_ID field of the Entity, we've already processed it
             // at the top of the method.
-            if ($field == static::FLD_ID) {
+            if (in_array($field, $ignoreFields)) {
                 continue;
             }
 

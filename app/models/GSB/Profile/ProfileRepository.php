@@ -1,30 +1,8 @@
 <?php namespace GSB\Profile;
 
-use \DB;
-use \Base\Exception\RTException;
-
-class ProfileRepository
+interface ProfileRepository
 {
-    public static function save(ProfileEntity $profile)
-    {
-        try {
-            $affected = DB::connection('app_w')
-                ->table('profiles')
-                ->where('id', '=', $profile->getId())
-                ->update($profile->fieldsAsArray());
-            return true;
-        } catch (\Exception $e) {
-            RTException::database('Database problem');
-        }
+    public static function save(ProfileEntity $profile);
 
-        return false;
-    }
-
-    public static function get_profile($id)
-    {
-        $data = DB::table('profiles')
-            ->find($id);
-
-        return (array) $data;
-    }
+    public static function getProfile($id);
 }

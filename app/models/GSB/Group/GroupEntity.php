@@ -3,6 +3,7 @@
 use \GSB\Groups\ProfileRepository;
 use \GSB\Base\Entity;
 use \App;
+use \Lang;
 
 class GroupEntity extends Entity
 {
@@ -17,6 +18,7 @@ class GroupEntity extends Entity
     protected $headline = null;
     protected $description = null;
     protected $visibility = null;
+    protected $buddies_approval = null;
     protected $meetings = null;
     protected $buddies = null;
 
@@ -31,30 +33,34 @@ class GroupEntity extends Entity
     const FLD_HEADLINE = 'headline';
     const FLD_DESCRIPTION = 'description';
     const FLD_VISIBILITY = 'visibility';
+    const FLD_BUDDIES_APPROVAL = 'buddies_approval';
     const FLD_MEETINGS = 'meetings';
     const FLD_BUDDIES = 'buddies';
 
     const VAL_VISIBILITY_OPEN = 0;
     const VAL_VISIBILITY_CLOSED = 1;
     const VAL_VISIBILITY_PRIVATE = 2;
+    const VAL_BUDDIES_APPROVAL_UNAPPROVED = 0;
+    const VAL_BUDDIES_APPROVAL_APPROVED = 1;
 
     public function __construct($id = null, $hydrate = false)
     {
         $this->id = $id;
         $this->fields += array(
-            self::FLD_ID => 'getId',
-            self::FLD_NAME => 'getName',
-            self::FLD_GRADUATING_YEAR => 'getGraduatingYear',
-            self::FLD_ADMIN_ID => 'getAdminId',
-            self::FLD_ADMIN_NAME => 'getAdminName',
-            self::FLD_CO_ADMIN_ID => 'getCoAdminId',
-            self::FLD_CO_ADMIN_NAME => 'getCoAdminName',
-            self::FLD_MAX_SIZE => 'getMaxSize',
-            self::FLD_HEADLINE => 'getHeadline',
-            self::FLD_DESCRIPTION => 'getDescription',
-            self::FLD_VISIBILITY => 'getVisibility',
-            self::FLD_MEETINGS => 'getMeetings',
-            self::FLD_BUDDIES => 'getBuddies',
+            self::FLD_ID               => 'getId',
+            self::FLD_NAME             => 'getName',
+            self::FLD_GRADUATING_YEAR  => 'getGraduatingYear',
+            self::FLD_ADMIN_ID         => 'getAdminId',
+            self::FLD_ADMIN_NAME       => 'getAdminName',
+            self::FLD_CO_ADMIN_ID      => 'getCoAdminId',
+            self::FLD_CO_ADMIN_NAME    => 'getCoAdminName',
+            self::FLD_MAX_SIZE         => 'getMaxSize',
+            self::FLD_HEADLINE         => 'getHeadline',
+            self::FLD_DESCRIPTION      => 'getDescription',
+            self::FLD_VISIBILITY       => 'getVisibility',
+            self::FLD_BUDDIES_APPROVAL => 'getBuddiesApproval',
+            self::FLD_MEETINGS         => 'getMeetings',
+            self::FLD_BUDDIES          => 'getBuddies',
         );
 
         if ($hydrate === true) {
@@ -174,6 +180,16 @@ class GroupEntity extends Entity
         $this->{self::FLD_VISIBILITY} = $visibility;
     }
 
+    public function getBuddiesApproval()
+    {
+        return $this->{self::FLD_BUDDIES_APPROVAL};
+    }
+
+    public function setBuddiesApproval($approval)
+    {
+        $this->{self::FLD_BUDDIES_APPROVAL} = is_null($approval) ? 0 : $approval;
+    }
+
     public function getMeetings()
     {
         return $this->{self::FLD_MEETINGS};
@@ -182,13 +198,13 @@ class GroupEntity extends Entity
     public function setMeetings($meetings)
     {
         foreach ($meetings as $meeting) {
-            $this->{self::FLD_MEETINGS}[$meeting->day] = (array) $meeting;
+            $this->{self::FLD_MEETINGS}[] = new GroupMeetingEntity($meeting->id, true);
         }
     }
 
     public function getBuddies()
     {
-        return $this->{self::FLD_BUDDIES};
+        return isset($this->{self::FLD_BUDDIES}) ? $this->{self::FLD_BUDDIES} : array();
     }
 
     public function setBuddies($buddies)
@@ -230,16 +246,21 @@ class GroupEntity extends Entity
         return $profile_id == $this->getAdminId() || $profile_id == $this->getCoAdminId();
     }
 
+    public function visibilityName()
+    {
+        return Lang::get('Group/strings.labels.visibility-'.$this->getVisibility());
+    }
+
     public function hydrate()
     {
         $GroupRepository = App::make('GroupRepository');
 
-        $group          = $GroupRepository::getGroup($this->id);
-        $group_meetings = $GroupRepository::getGroupMeetings($this->id);
-        $group_buddies  = $GroupRepository::getGroupBuddies($this->id);
+        $group           = $GroupRepository::getGroup($this->id);
+        $group_meetings  = $GroupRepository::getGroupMeetings($this->id);
+        $group_buddies   = $GroupRepository::getGroupBuddies($this->id);
 
-        $this->setName($group['name']);
-        $this->setGraduatingYear($group['graduating_year']);
+        $this->setName($group['name'] != '' ? $group['name'] : '');
+        $this->setGraduatingYear($group['graduating_year'] != '' ? $group['graduating_year'] : '');
         $this->setAdminId($group['admin_id']);
         $this->setAdminName($group['full_name']);
         $this->setCoAdminId($group['co_admin_id']);
@@ -248,6 +269,7 @@ class GroupEntity extends Entity
         $this->setHeadline($group['headline']);
         $this->setDescription($group['description']);
         $this->setVisibility($group['visibility']);
+        $this->setBuddiesApproval($group['buddies_approval']);
 
         $this->setMeetings($group_meetings);
 
