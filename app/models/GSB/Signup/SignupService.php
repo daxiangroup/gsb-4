@@ -50,7 +50,7 @@ class SignupService
     {
         $rules = array(
             'signup.full_name' => 'required',
-            'signup.email'     => 'required',
+            'signup.email'     => 'required|unique:profiles,email',
             'signup.password'  => 'required|min:8',
         );
 
