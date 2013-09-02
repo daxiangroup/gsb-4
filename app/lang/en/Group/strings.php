@@ -1,15 +1,5 @@
 <?php
 return array(
-    'password' => array(
-        'save_success'       => '<strong>Awesome!</strong> Your password has been saved.',
-        'save_error'         => '<strong>Uh oh!</strong> There seems to have been some problems saving your password.',
-    ),
-
-    'account' => array(
-        'save_success'       => '<strong>Awesome!</strong> Your account has been saved.',
-        'save_error'         => '<strong>Uh oh!</strong> There seems to have been some problems saving your account.',
-    ),
-
     'labels' => array(
         'name'               => 'Group Name',
         'graduating_year'    => 'Graduating Year',
@@ -20,8 +10,12 @@ return array(
         'headline'           => 'Tagline',
         'visibility'         => 'Group Visibility',
         'visibility-open'    => 'Open',
+        'visibility-0'       => 'Open',
         'visibility-closed'  => 'Closed',
+        'visibility-1'       => 'Closed',
         'visibility-private' => 'Private',
+        'visibility-2'       => 'Private',
+        'buddies_approval'   => 'Buddies Require Approval',
     ),
 
     'explanation' => array(
@@ -31,13 +25,24 @@ return array(
         'visibility-open'    => 'Anyone can see the group, who\'s in it, and what members post',
         'visibility-closed'  => 'Anyone can see the group, only members see posts',
         'visibility-private' => 'Only members see the group, who\'s in it, and Buddies must be invited',
+        'buddies_approval'   => 'Buddies will not be added to the group until an Admin approves them',
     ),
 
     'headers' => array(
         'create'             => 'Create A Group',
+        'edit'               => 'Edit Your Group',
+        'remove-meeting'     => 'Remove Group Meeting',
     ),
     'subheaders'  => array(
         'create'             => 'Create a new group and start gathering Buddies',
         'create-meetings'    => 'Meeting Days and Times',
+        'edit'               => 'Edit your existing group',
+    ),
+    'description' => array(
+        'visibility'         => 'The visibility of this Group is ',
+    ),
+    'buttons' => array(
+        'group-join'         => 'Join This Group',
+        'group-edit'         => 'Edit This Group',
     ),
 );
