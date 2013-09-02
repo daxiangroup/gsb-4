@@ -51,94 +51,94 @@ class ProfileEntity extends Entity
 
     public function getId()
     {
-        return $this->id;
+        return $this->{self::FLD_ID};
     }
 
     public function setId($id)
     {
-        $this->id = $id;
+        $this->{self::FLD_ID} = $id;
     }
 
     public function getUsername()
     {
-        return $this->username;
+        return $this->{self::FLD_USERNAME};
     }
 
     public function setUsername($username)
     {
-        $this->username = $username;
+        $this->{self::FLD_USERNAME} = $username;
     }
 
     public function getEmail()
     {
-        return $this->email;
+        return $this->{self::FLD_EMAIL};
     }
 
     public function setEmail($email)
     {
-        $this->email = $email;
+        $this->{self::FLD_EMAIL} = $email;
     }
 
     public function getPassword()
     {
-        return $this->password;
+        return $this->{self::FLD_PASSWORD};
     }
 
     public function setPassword($password)
     {
-        $this->password = Hash::make($password);
+        $this->{self::FLD_PASSWORD} = Hash::make($password);
     }
 
     public function getFullName()
     {
-        return $this->full_name;
+        return $this->{self::FLD_FULL_NAME};
     }
 
     public function setFullName($full_name)
     {
-        $this->full_name = $full_name;
+        $this->{self::FLD_FULL_NAME} = $full_name;
     }
 
     public function getGraduatingYear()
     {
-        return $this->graduating_year;
+        return $this->{self::FLD_GRADUATING_YEAR};
     }
 
     public function setGraduatingYear($year)
     {
-        $this->graduating_year = $year;
+        $this->{self::FLD_GRADUATING_YEAR} = $year;
     }
 
     public function getBio()
     {
-        return $this->bio;
+        return $this->{self::FLD_BIO};
     }
 
     public function setBio($bio)
     {
-        $this->bio = $bio;
+        $this->{self::FLD_BIO} = $bio;
     }
 
     public function getLanguage()
     {
-        return $this->language;
+        return $this->{self::FLD_LANGUAGE};
     }
 
     public function setLanguage($language)
     {
-        $this->language = $language;
+        $this->{self::FLD_LANGUAGE} = $language;
     }
 
     public function hydrate()
     {
-        $profile = ProfileRepository::getProfile($this->id);
+        $profile = ProfileRepository::getProfile($this->{self::FLD_ID});
 
-        $this->setUsername($profile['username']);
-        $this->setEmail($profile['email']);
-        $this->setPassword($profile['password']);
-        $this->setFullName($profile['full_name']);
-        $this->setGraduatingYear($profile['graduating_year']);
-        $this->setBio($profile['bio']);
-        $this->setLanguage($profile['language']);
+        $this->setUsername($profile[self::FLD_USERNAME]);
+        $this->setEmail($profile[self::FLD_EMAIL]);
+        $this->setPassword($profile[self::FLD_PASSWORD]);
+        $this->setFullName($profile[self::FLD_FULL_NAME]);
+        $this->setGraduatingYear($profile[self::FLD_GRADUATING_YEAR]);
+        $this->setBio($profile[self::FLD_BIO]);
+        $this->setLanguage($profile[self::FLD_LANGUAGE]);
     }
 }

@@ -255,21 +255,21 @@ class GroupEntity extends Entity
     {
         $GroupRepository = App::make('GroupRepository');
 
-        $group           = $GroupRepository::getGroup($this->id);
-        $group_meetings  = $GroupRepository::getGroupMeetings($this->id);
-        $group_buddies   = $GroupRepository::getGroupBuddies($this->id);
+        $group           = $GroupRepository::getGroup($this->{self::FLD_ID});
+        $group_meetings  = $GroupRepository::getGroupMeetings($this->{self::FLD_ID});
+        $group_buddies   = $GroupRepository::getGroupBuddies($this->{self::FLD_ID});
 
-        $this->setName($group['name'] != '' ? $group['name'] : '');
-        $this->setGraduatingYear($group['graduating_year'] != '' ? $group['graduating_year'] : '');
-        $this->setAdminId($group['admin_id']);
+        $this->setName($group[self::FLD_NAME] != '' ? $group[self::FLD_NAME] : '');
+        $this->setGraduatingYear($group[self::FLD_GRADUATING_YEAR] != '' ? $group[self::FLD_GRADUATING_YEAR] : '');
+        $this->setAdminId($group[self::FLD_ADMIN_ID]);
         $this->setAdminName($group['full_name']);
-        $this->setCoAdminId($group['co_admin_id']);
+        $this->setCoAdminId($group[self::FLD_CO_ADMIN_ID]);
         $this->setCoAdminName($group['co_full_name']);
-        $this->setMaxSize($group['max_size']);
-        $this->setHeadline($group['headline']);
-        $this->setDescription($group['description']);
-        $this->setVisibility($group['visibility']);
-        $this->setBuddiesApproval($group['buddies_approval']);
+        $this->setMaxSize($group[self::FLD_MAX_SIZE]);
+        $this->setHeadline($group[self::FLD_HEADLINE]);
+        $this->setDescription($group[self::FLD_DESCRIPTION]);
+        $this->setVisibility($group[self::FLD_VISIBILITY]);
+        $this->setBuddiesApproval($group[self::FLD_BUDDIES_APPROVAL]);
 
         $this->setMeetings($group_meetings);
 

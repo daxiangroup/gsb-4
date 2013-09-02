@@ -104,12 +104,12 @@ class GroupMeetingEntity extends Entity
     {
         $GroupRepository = App::make('GroupRepository');
 
-        $meeting = $GroupRepository::getGroupMeeting($this->id);
+        $meeting = $GroupRepository::getGroupMeeting($this->{self::FLD_ID});
 
-        $this->setGroupId($meeting['group_id']);
-        $this->setDay($meeting['day']);
-        $this->setTimeStart($meeting['time_start']);
-        $this->setTimeEnd($meeting['time_end']);
-        $this->setNotes($meeting['notes']);
+        $this->setGroupId($meeting[self::FLD_GROUP_ID]);
+        $this->setDay($meeting[self::FLD_DAY]);
+        $this->setTimeStart($meeting[self::FLD_TIME_START]);
+        $this->setTimeEnd($meeting[self::FLD_TIME_END]);
+        $this->setNotes($meeting[self::FLD_NOTES]);
     }
 }

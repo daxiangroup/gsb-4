@@ -81,11 +81,11 @@ class GroupBuddyEntity extends Entity
     {
         $GroupRepository = App::make('GroupRepository');
 
-        $group_buddies = $GroupRepository::getGroupBuddies($this->id);
+        $group_buddies = $GroupRepository::getGroupBuddies($this->{self::FLD_ID});
 
-        $this->setGroupId($group_buddies['group_id']);
-        $this->setProfileId($group_buddies['profile_id']);
-        $this->setStatus($group_buddies['status']);
+        $this->setGroupId($group_buddies[self::FLD_GROUP_ID]);
+        $this->setProfileId($group_buddies[self::FLD_PROFILE_ID]);
+        $this->setStatus($group_buddies[self::FLD_STATUS]);
         $this->setCreated($group_buddies['created']);
         $this->setUpdated($group_buddies['updated']);
     }
