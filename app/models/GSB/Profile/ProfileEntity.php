@@ -1,30 +1,28 @@
 <?php namespace GSB\Profile;
 
-// TODO: make sure we use FLD_***** everywhere
-
+use \App;
 use \GSB\Profile\ProfileRepository;
 use \GSB\Base\Entity;
 use \Hash;
 
-//class ProfileEntity extends Entity
 class ProfileEntity extends Entity
 {
-    protected $id = null;
-    protected $username = null;
-    protected $email = null;
-    protected $password = null;
-    protected $full_name = null;
+    protected $id              = null;
+    protected $username        = null;
+    protected $email           = null;
+    protected $password        = null;
+    protected $full_name       = null;
     protected $graduating_year = null;
-    protected $bio = null;
+    protected $bio             = null;
 
-    const FLD_ID = 'id';
-    const FLD_USERNAME = 'username';
-    const FLD_EMAIL = 'email';
-    const FLD_PASSWORD = 'password';
-    const FLD_FULL_NAME = 'full_name';
+    const FLD_ID              = 'id';
+    const FLD_USERNAME        = 'username';
+    const FLD_EMAIL           = 'email';
+    const FLD_PASSWORD        = 'password';
+    const FLD_FULL_NAME       = 'full_name';
     const FLD_GRADUATING_YEAR = 'graduating_year';
-    const FLD_BIO = 'bio';
-    const FLD_LANGUAGE = 'language';
+    const FLD_BIO             = 'bio';
+    const FLD_LANGUAGE        = 'language';
 
     public function __construct($id = null, $hydrate = false)
     {
@@ -86,7 +84,7 @@ class ProfileEntity extends Entity
 
     public function setPassword($password)
     {
-        $this->{self::FLD_PASSWORD} = Hash::make($password);
+        $this->{self::FLD_PASSWORD} = $password;
     }
 
     public function getFullName()
@@ -131,7 +129,8 @@ class ProfileEntity extends Entity
 
     public function hydrate()
     {
-        $profile = ProfileRepository::getProfile($this->{self::FLD_ID});
+        $ProfileRepository = App::make('ProfileRepository');
+        $profile           = $ProfileRepository::getProfile($this->{self::FLD_ID});
 
         $this->setUsername($profile[self::FLD_USERNAME]);
         $this->setEmail($profile[self::FLD_EMAIL]);
@@ -140,5 +139,10 @@ class ProfileEntity extends Entity
         $this->setGraduatingYear($profile[self::FLD_GRADUATING_YEAR]);
         $this->setBio($profile[self::FLD_BIO]);
         $this->setLanguage($profile[self::FLD_LANGUAGE]);
+    }
+
+    public function hashPassword()
+    {
+        $this->{self::FLD_PASSWORD} = Hash::make($this->{self::FLD_PASSWORD});
     }
 }
