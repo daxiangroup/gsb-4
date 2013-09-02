@@ -57,6 +57,16 @@ class SignupController extends BaseController
         $profile->setLanguage('en');
         $profile->setCreated();
 
+        // Create the login credentials before hashing password so we can auto-
+        // magically log the user in after successfully creating the Profile.
+        $credentials = array(
+            'email' => $profile->getEmail(),
+            'password' => $profile->getPassword(),
+        );
+
+        // Now we hash the password to store to repository.
+        $profile->hashPassword();
+
         $success = $this->repository->save($profile);
 
         // If had a problem with the Profile create, we should send them to the
@@ -76,11 +86,6 @@ class SignupController extends BaseController
         }
 
         // Log the user in before sending them to the welcome page.
-        $credentials = array(
-            'email' => $profile->getEmail(),
-            'password' => $profile->getPassword(),
-        );
-        die('<pre>'.print_r($credentials,true));
         Auth::attempt($credentials);
 
         // Fire the signup.join event so listeners know that a profile has been
@@ -92,6 +97,6 @@ class SignupController extends BaseController
         );
         Event::fire('signup.join', array($ep));
 
-        return Redirect::to('/welcome');
+        return Redirect::route('welcome');
     }
 }
