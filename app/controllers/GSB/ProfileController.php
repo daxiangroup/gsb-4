@@ -1,10 +1,11 @@
 <?php namespace GSB;
 
-use \BaseController;
-use \View;
-use \Auth;
-use \Input;
 use \App;
+use \Auth;
+use \BaseController;
+use \GSB\Profile\ProfileEntity;
+use \Input;
+use \View;
 
 class ProfileController extends BaseController {
 
@@ -29,9 +30,7 @@ class ProfileController extends BaseController {
 
     public function getIndex()
     {
-        $ProfileEntity = App::make('ProfileEntity');
-
-        $profile = new $ProfileEntity(Auth::user()->id, true);
+        $profile = new ProfileEntity(Auth::user()->id, true);
         $form_values['account_username'] = Input::old('account_username') != '' ? Input::old('account_username') : $profile->getUsername();
         $form_values['account_email'] = Input::old('account_email') != '' ? Input::old('account_email') : $profile->getEmail();
         $form_values['account_full_name'] = Input::old('account_full_name') != '' ? Input::old('account_full_name') : $profile->getFullName();
