@@ -14,14 +14,14 @@
         <testsuite name="Application Test Suite">
             <directory>./app/tests/</directory>
         </testsuite>
-        <testsuite name="Fart">
-            <file>./app/tests/FartTest.php</file>
-        </testsuite>
         <testsuite name="Example">
             <file>./app/tests/ExampleTest.php</file>
         </testsuite>
         <testsuite name="Group">
             <directory>./app/tests/Group</directory>
+        </testsuite>
+        <testsuite name="Profile">
+            <directory>./app/tests/Profile</directory>
         </testsuite>
     </testsuites>
 </phpunit>

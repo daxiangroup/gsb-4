@@ -1,9 +1,10 @@
 <?php namespace GSB\Profile;
 
 use \App;
-use \GSB\Profile\ProfileRepository;
 use \GSB\Base\Entity;
+use \GSB\Profile\ProfileRepository;
 use \Hash;
+use \InvalidArgumentException;
 
 class ProfileEntity extends Entity
 {
@@ -14,6 +15,7 @@ class ProfileEntity extends Entity
     protected $full_name       = null;
     protected $graduating_year = null;
     protected $bio             = null;
+    protected $language        = null;
 
     const FLD_ID              = 'id';
     const FLD_USERNAME        = 'username';
@@ -45,6 +47,8 @@ class ProfileEntity extends Entity
         if ($hydrate === true) {
             $this->hydrate();
         }
+
+        return $this;
     }
 
     public function getId()
@@ -54,6 +58,10 @@ class ProfileEntity extends Entity
 
     public function setId($id)
     {
+        if (!is_int($id)) {
+            throw new InvalidArgumentException('Id must be an integer');
+        }
+
         $this->{self::FLD_ID} = $id;
     }
 
@@ -64,6 +72,14 @@ class ProfileEntity extends Entity
 
     public function setUsername($username)
     {
+        if (!is_string($username)) {
+            throw new InvalidArgumentException('Username must be a string');
+        }
+
+        if (is_numeric($username)) {
+            throw new InvalidArgumentException('Username cannot be numeric');
+        }
+
         $this->{self::FLD_USERNAME} = $username;
     }
 
@@ -74,6 +90,14 @@ class ProfileEntity extends Entity
 
     public function setEmail($email)
     {
+        if (!is_string($email)) {
+            throw new InvalidArgumentException('Email must be a string');
+        }
+
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            throw new InvalidArgumentException('Email must be valid');
+        }
+
         $this->{self::FLD_EMAIL} = $email;
     }
 
@@ -84,6 +108,10 @@ class ProfileEntity extends Entity
 
     public function setPassword($password)
     {
+        if (!is_string($password)) {
+            throw new InvalidArgumentException('Password must be a string');
+        }
+
         $this->{self::FLD_PASSWORD} = $password;
     }
 
@@ -94,6 +122,14 @@ class ProfileEntity extends Entity
 
     public function setFullName($full_name)
     {
+        if (!is_string($full_name)) {
+            throw new InvalidArgumentException('Full Name must be a string');
+        }
+
+        if (is_numeric($full_name)) {
+            throw new InvalidArgumentException('Full Name cannot be numeric');
+        }
+
         $this->{self::FLD_FULL_NAME} = $full_name;
     }
 
@@ -104,6 +140,10 @@ class ProfileEntity extends Entity
 
     public function setGraduatingYear($year)
     {
+        if (!is_numeric($year)) {
+            throw new InvalidArgumentException('Graduating Year must be numeric');
+        }
+
         $this->{self::FLD_GRADUATING_YEAR} = $year;
     }
 
@@ -114,6 +154,10 @@ class ProfileEntity extends Entity
 
     public function setBio($bio)
     {
+        if (!is_string($bio)) {
+            throw new InvalidArgumentException('Bio must be a string');
+        }
+
         $this->{self::FLD_BIO} = $bio;
     }
 
@@ -124,6 +168,18 @@ class ProfileEntity extends Entity
 
     public function setLanguage($language)
     {
+        if (!is_string($language)) {
+            throw new InvalidArgumentException('Language must be a string');
+        }
+
+        if (is_numeric($language)) {
+            throw new InvalidArgumentException('Language cannot be numeric');
+        }
+
+        if (strlen($language) != 2) {
+            throw new InvalidArgumentException('Language must be two characters');
+        }
+
         $this->{self::FLD_LANGUAGE} = $language;
     }
 
