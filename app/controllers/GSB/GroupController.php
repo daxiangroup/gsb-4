@@ -96,7 +96,7 @@ class GroupController extends BaseController {
         $buddy = new GroupBuddyEntity();
         $buddy->setGroupId($group_id);
         $buddy->setProfileId($profile_id);
-        $buddy->setStatus(GroupBuddyEntity::STATUS_PENDING);
+        $buddy->setStatus(GroupBuddyEntity::VAL_STATUS_PENDING);
 
         // If at this point when we try to save, there are no spots left in the
         // group (last one was taken BEFORE user tried to save themselves (race
