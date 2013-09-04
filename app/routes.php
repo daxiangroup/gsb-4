@@ -36,6 +36,7 @@ Route::get('/dashboard',        array('as'=>'dashboard',         'uses'=>'GSB\Da
 
 /*****[ Profiles ]*************************************************************/
 Route::get('/profile',          array('as'=>'profile',           'uses'=>'GSB\ProfileController@getIndex'));
+Route::post('/profile',         array('as'=>'profile.save',      'uses'=>'GSB\ProfileController@postIndex'));
 Route::get('/profile/password', array('as'=>'profile.password',  'uses'=>'GSB\ProfileController@getPassword'));
 Route::get('/profile/settings', array('as'=>'profile.settings',  'uses'=>'GSB\ProfileController@getSettings'));
 Route::get('/profile/{id}',     array('as'=>'profile.view',      'uses'=>'GSB\ProfileController@getProfileView'));

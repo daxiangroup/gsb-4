@@ -3,11 +3,17 @@
 use \App;
 use \Auth;
 use \BaseController;
+use \Event;
 use \GSB\Profile\ProfileEntity;
+use \GSB\Profile\ProfileService;
 use \Input;
+use \Redirect;
 use \View;
 
-class ProfileController extends BaseController {
+class ProfileController extends BaseController
+{
+
+    private $repository = null;
 
     /*
     |--------------------------------------------------------------------------
@@ -26,11 +32,13 @@ class ProfileController extends BaseController {
     {
         $this->beforeFilter('auth');
         $this->beforeFilter('csrf', array('on' => 'post'));
+
+        $this->repository = App::make('ProfileRepository');
     }
 
     public function getIndex()
     {
-        $profile = new ProfileEntity(Auth::user()->id, true);
+        $profile = new ProfileEntity((int)Auth::user()->id, true);
         $form_values['account_username'] = Input::old('account_username') != '' ? Input::old('account_username') : $profile->getUsername();
         $form_values['account_email'] = Input::old('account_email') != '' ? Input::old('account_email') : $profile->getEmail();
         $form_values['account_full_name'] = Input::old('account_full_name') != '' ? Input::old('account_full_name') : $profile->getFullName();
@@ -40,6 +48,47 @@ class ProfileController extends BaseController {
         return View::make('profile.index')
             ->with('active_link', 'profile')
             ->with('form_values', $form_values);
+    }
+
+    public function postIndex()
+    {
+        $data       = Input::all();
+        $validation = ProfileService::validate('profile', $data);
+        $profile_id = Auth::user()->id;
+
+        // If the form validation fails, we want to flash the Input values so we
+        // have them when re-displaying the form to the user, then Redirect.
+        if ($validation->fails()) {
+            Input::flash();
+
+            return Redirect::route('profile')
+                ->with('success', false)
+                ->withErrors($validation);
+        }
+
+        // Create a ProfileEntity and populate the POSTed fields.
+        $profile = new ProfileEntity((int)$profile_id);
+        $profile->setUsername($data['profile']['username']);
+        $profile->setEmail($data['profile']['email']);
+        $profile->setFullName($data['profile']['full_name']);
+        $profile->setGraduatingYear($data['profile']['graduating_year']);
+        $profile->setBio($data['profile']['bio']);
+
+        // Save the ProfileEntity
+        $success = $this->repository->save($profile);
+
+        // Fire the profile.account_save event so listeners know that an account
+        // has been saved.
+        $ep = array(
+            'profile_id' => $profile_id,
+            'success' => $success,
+            'timestamp' => time(),
+        );
+        Event::fire('profile.save', array($ep));
+
+        // Redirect the user to the profile form with a success flag.
+        return Redirect::route('profile')
+            ->with('success', $success);
     }
 
 
@@ -64,5 +113,4 @@ class ProfileController extends BaseController {
         return View::make('profile.settings')
             ->with('active_link', 'profile.settings');
     }
-
 }

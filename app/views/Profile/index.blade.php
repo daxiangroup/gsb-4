@@ -1,4 +1,5 @@
 @extends('layouts.left40')
+{{-- TODO: Ensure this view is properly localized - lang is hardcoded --}}
 
 @section('content-left')
 @include('profile.navigation')
@@ -6,7 +7,7 @@
 
 @section('content-right')
 
-{{ Form::open() }}
+{{ Form::open(array('method'=>'POST')) }}
 {{ Form::token() }}
 <div class="page-header">
     <h2>Account<br>
@@ -14,66 +15,66 @@
 </div>
 
 @if (Session::get('success') === false)
-<div class="alert alert-error">{{ Lang::line('profile/strings.account.save_error')->get('en') }}</div>
+<div class="alert alert-error">{{ Lang::get('profile/strings.account.save_error') }}</div>
 @endif
 
 @if (Session::get('success') === true)
-<div class="alert alert-success">{{ Lang::line('profile/strings.account.save_success')->get('en') }}</div>
+<div class="alert alert-success">{{ Lang::get('profile/strings.account.save_success') }}</div>
 @endif
 
 <div class="row-fluid form-row{{ $errors->has('account_username') ? ' error' : '' }}">
     <div class="span3">
-        {{ Form::label('account_username', Lang::get('profile/strings.labels.username')) }}
+        {{ Form::label('profile[username]', Lang::get('profile/strings.labels.username')) }}
     </div>
     <div class="span8">
-        {{ Form::text('account_username', $form_values['account_username']) }}
-        {{ $errors->has('account_username') ? $errors->first('account_username', Config::get('rtconfig.format.validation_message')) : '' }}
+        {{ Form::text('profile[username]', $form_values['account_username']) }}
+        {{ $errors->has('profile[username]') ? $errors->first('profile[username]', Config::get('rtconfig.format.validation_message')) : '' }}
     </div>
 </div>
 
 <div class="row-fluid form-row{{ $errors->has('account_email') ? ' error' : '' }}">
     <div class="span3">
-        {{ Form::label('account_email', Lang::get('profile/strings.labels.email')) }}
+        {{ Form::label('profile[email]', Lang::get('profile/strings.labels.email')) }}
     </div>
     <div class="span8">
-        {{ Form::text('account_email', $form_values['account_email']) }}
-        {{ $errors->has('account_email') ? $errors->first('account_email', Config::get('rtconfig.format.validation_message')) : '' }}
+        {{ Form::text('profile[email]', $form_values['account_email']) }}
+        {{ $errors->has('profile[email]') ? $errors->first('profile[email]', Config::get('rtconfig.format.validation_message')) : '' }}
     </div>
 </div>
 
 <div class="row-fluid form-row{{ $errors->has('account_full_name') ? ' error' : '' }}">
     <div class="span3">
-        {{ Form::label('account_full_name', Lang::get('profile/strings.labels.full_name')) }}
+        {{ Form::label('profile[full_name]', Lang::get('profile/strings.labels.full_name')) }}
     </div>
     <div class="span8">
-        {{ Form::text('account_full_name', $form_values['account_full_name']) }}
-        {{ $errors->has('account_full_name') ? $errors->first('account_full_name', Config::get('rtconfig.format.validation_message')) : '' }}
+        {{ Form::text('profile[full_name]', $form_values['account_full_name']) }}
+        {{ $errors->has('profile[full_name]') ? $errors->first('profile[full_name]', Config::get('rtconfig.format.validation_message')) : '' }}
     </div>
 </div>
 
 <div class="row-fluid form-row{{ $errors->has('account_graduating_year') ? ' error' : '' }}">
     <div class="span3">
-        {{ Form::label('account_graduating_year', Lang::get('profile/strings.labels.graduating_year')) }}
+        {{ Form::label('profile[graduating_year]', Lang::get('profile/strings.labels.graduating_year')) }}
     </div>
     <div class="span8">
-        {{ Form::text('account_graduating_year', $form_values['account_graduating_year']) }}
-        {{ $errors->has('account_graduating_year') ? $errors->first('account_graduating_year', Config::get('rtconfig.format.validation_message')) : '' }}
+        {{ Form::text('profile[graduating_year]', $form_values['account_graduating_year']) }}
+        {{ $errors->has('profile[graduating_year]') ? $errors->first('profile[graduating_year]', Config::get('rtconfig.format.validation_message')) : '' }}
     </div>
 </div>
 
 <div class="row-fluid form-row{{ $errors->has('account_bio') ? ' error' : '' }}">
     <div class="span3">
-        {{ Form::label('account_bio', Lang::get('profile/strings.labels.bio')) }}
+        {{ Form::label('profile[bio]', Lang::get('profile/strings.labels.bio')) }}
     </div>
     <div class="span8">
-        {{ Form::text('account_bio', $form_values['account_bio']) }}
-        {{ $errors->has('account_bio') ? $errors->first('account_bio', Config::get('rtconfig.format.validation_message')) : '' }}
+        {{ Form::text('profile[bio]', $form_values['account_bio']) }}
+        {{ $errors->has('profile[bio]') ? $errors->first('profile[bio]', Config::get('rtconfig.format.validation_message')) : '' }}
     </div>
 </div>
 
 <div class="row-fluid control-row">
     <div class="span3"></div>
-    <div class="span8">{{ Form::button('Save', array('class'=>'btn btn-primary')) }}</div>
+    <div class="span8">{{ Form::submit('Save', array('class'=>'btn btn-primary')) }}</div>
 </div>
 {{ Form::close() }}
 
