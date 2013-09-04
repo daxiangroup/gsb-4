@@ -18,6 +18,11 @@ class Entity
     const FLD_CREATED = 'created';
     const FLD_UPDATED = 'updated';
 
+    public function getFields()
+    {
+        return $this->fields;
+    }
+
     /**
      * Get the created datetime.
      *
