@@ -3,6 +3,20 @@
 use \GSB\Profile\ProfileEntity;
 
 class ProfileEntityTest extends TestCase {
+    public function testEntityHasCorrectFields()
+    {
+        $ProfileEntity = new ProfileEntity();
+
+        $this->assertArrayHasKey('id', $ProfileEntity->getFields());
+        $this->assertArrayHasKey('username', $ProfileEntity->getFields());
+        $this->assertArrayHasKey('email', $ProfileEntity->getFields());
+        $this->assertArrayHasKey('password', $ProfileEntity->getFields());
+        $this->assertArrayHasKey('full_name', $ProfileEntity->getFields());
+        $this->assertArrayHasKey('graduating_year', $ProfileEntity->getFields());
+        $this->assertArrayHasKey('bio', $ProfileEntity->getFields());
+        $this->assertArrayHasKey('language', $ProfileEntity->getFields());
+    }
+
     // *****[ Id Tests ]********************************************************
     public function testIdIsNull()
     {
@@ -19,6 +33,13 @@ class ProfileEntityTest extends TestCase {
         $this->assertNotNull($ProfileEntity->getId());
     }
 
+    public function testIdIsNotNullUsingConstructor()
+    {
+        $ProfileEntity = new ProfileEntity(2);
+
+        $this->assertEquals(2, $ProfileEntity->getId());
+    }
+
     public function testIdIsEqualToSet()
     {
         $ProfileEntity = new ProfileEntity();
@@ -27,20 +48,20 @@ class ProfileEntityTest extends TestCase {
         $this->assertEquals(2, $ProfileEntity->getId());
     }
 
-    public function testIdIsNotException()
+    public function testIdIsNotString()
     {
         $this->setExpectedException('InvalidArgumentException');
 
         $ProfileEntity = new ProfileEntity();
-        $ProfileEntity->setId('Jimmy');
+        $ProfileEntity->setId('2');
     }
 
-    public function testIdIsNotExceptionMessage()
+    public function testIdIsNotStringMessage()
     {
         $this->setExpectedException('InvalidArgumentException', 'Id must be an integer');
 
         $ProfileEntity = new ProfileEntity();
-        $ProfileEntity->setId('Jimmy');
+        $ProfileEntity->setId('2');
     }
 
     // *****[ Username Tests ]**************************************************
@@ -401,6 +422,46 @@ class ProfileEntityTest extends TestCase {
 
         $ProfileEntity = new ProfileEntity();
         $ProfileEntity->setLanguage('english');
+    }
+
+    // *****[ Minimum Completre Tests ]*****************************************
+    public function testMinimumCompleteIsNull()
+    {
+        $ProfileEntity = new ProfileEntity();
+
+        $this->assertNull($ProfileEntity->getMinimumComplete());
+    }
+
+    public function testMinimumCompleteIsNotNull()
+    {
+        $ProfileEntity = new ProfileEntity();
+        $ProfileEntity->setMinimumComplete(true);
+
+        $this->assertNotNull($ProfileEntity->getMinimumComplete());
+    }
+
+    public function testMinimumCompleteIsEqualToSet()
+    {
+        $ProfileEntity = new ProfileEntity();
+        $ProfileEntity->setMinimumComplete(true);
+
+        $this->assertEquals(true, $ProfileEntity->getMinimumComplete());
+    }
+
+    public function testMinimumCompleteIsBoolean()
+    {
+        $this->setExpectedException('InvalidArgumentException');
+
+        $ProfileEntity = new ProfileEntity();
+        $ProfileEntity->setMinimumComplete('Jimmy');
+    }
+
+    public function testMinimumCompleteIsBooleanMessage()
+    {
+        $this->setExpectedException('InvalidArgumentException', 'Minimum Complete must be a boolean');
+
+        $ProfileEntity = new ProfileEntity();
+        $ProfileEntity->setMinimumComplete('Jimmy');
     }
 
     // TODO: properly mock out profile repository for hydrate tests

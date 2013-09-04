@@ -1,5 +1,7 @@
 <?php namespace GSB\Profile;
 
+// TODO: Convert exceptions to GSBException's
+
 use \App;
 use \GSB\Base\Entity;
 use \GSB\Profile\ProfileRepository;
@@ -8,36 +10,43 @@ use \InvalidArgumentException;
 
 class ProfileEntity extends Entity
 {
-    protected $id              = null;
-    protected $username        = null;
-    protected $email           = null;
-    protected $password        = null;
-    protected $full_name       = null;
-    protected $graduating_year = null;
-    protected $bio             = null;
-    protected $language        = null;
+    protected $id               = null;
+    protected $username         = null;
+    protected $email            = null;
+    protected $password         = null;
+    protected $full_name        = null;
+    protected $graduating_year  = null;
+    protected $bio              = null;
+    protected $language         = null;
+    protected $minimum_complete = null;
 
-    const FLD_ID              = 'id';
-    const FLD_USERNAME        = 'username';
-    const FLD_EMAIL           = 'email';
-    const FLD_PASSWORD        = 'password';
-    const FLD_FULL_NAME       = 'full_name';
-    const FLD_GRADUATING_YEAR = 'graduating_year';
-    const FLD_BIO             = 'bio';
-    const FLD_LANGUAGE        = 'language';
+    const FLD_ID               = 'id';
+    const FLD_USERNAME         = 'username';
+    const FLD_EMAIL            = 'email';
+    const FLD_PASSWORD         = 'password';
+    const FLD_FULL_NAME        = 'full_name';
+    const FLD_GRADUATING_YEAR  = 'graduating_year';
+    const FLD_BIO              = 'bio';
+    const FLD_LANGUAGE         = 'language';
+    const FLD_MINIMUM_COMPLETE = 'minimum_complete';
 
     public function __construct($id = null, $hydrate = false)
     {
+        if (!is_null($id) && !is_int($id)) {
+            throw new InvalidArgumentException('Id must be an integer');
+        }
+
         $this->id = $id;
         $this->fields = array(
-            self::FLD_ID              => 'getId',
-            self::FLD_USERNAME        => 'getUsername',
-            self::FLD_EMAIL           => 'getEmail',
-            self::FLD_PASSWORD        => 'getPassword',
-            self::FLD_FULL_NAME       => 'getFullName',
-            self::FLD_GRADUATING_YEAR => 'getGraduatingYear',
-            self::FLD_BIO             => 'getBio',
-            self::FLD_LANGUAGE        => 'getLanguage',
+            self::FLD_ID               => 'getId',
+            self::FLD_USERNAME         => 'getUsername',
+            self::FLD_EMAIL            => 'getEmail',
+            self::FLD_PASSWORD         => 'getPassword',
+            self::FLD_FULL_NAME        => 'getFullName',
+            self::FLD_GRADUATING_YEAR  => 'getGraduatingYear',
+            self::FLD_BIO              => 'getBio',
+            self::FLD_LANGUAGE         => 'getLanguage',
+            self::FLD_MINIMUM_COMPLETE => 'getMinimumComplete',
         );
 
         if (is_null($id)) {
@@ -181,6 +190,20 @@ class ProfileEntity extends Entity
         }
 
         $this->{self::FLD_LANGUAGE} = $language;
+    }
+
+    public function getMinimumComplete()
+    {
+        return $this->{self::FLD_MINIMUM_COMPLETE} === 1 ? true : false;
+    }
+
+    public function setMinimumComplete($complete)
+    {
+        if (!is_bool($complete)) {
+            throw new InvalidArgumentException('Minimum Complete must be a boolean');
+        }
+
+        $this->{self::FLD_MINIMUM_COMPLETE} = $complete == true ? 1 : 0;
     }
 
     public function hydrate()
