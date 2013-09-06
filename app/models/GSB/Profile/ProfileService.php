@@ -83,7 +83,13 @@ class ProfileService
         $rules = array(
             'profile' => array(
                 'profile.username' => 'required',
-                'profile.email' => 'required',
+                'profile.email'    => 'required',
+            ),
+            'profile.password' => array(
+                'password.current' => 'required',
+                'password.new'     => 'required',
+                //'password.verify'  => 'required|same:password[new]',
+                'password.verify'  => 'required',
             ),
         );
 
@@ -113,6 +119,8 @@ class ProfileService
         $messages = array(
             'profile' => array(
                 '',
+            ),
+            'profile.password' => array(
             ),
         );
 

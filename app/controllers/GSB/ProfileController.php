@@ -103,6 +103,44 @@ class ProfileController extends BaseController
             ->with('active_link', 'profile.password');
     }
 
+    public function postPassword()
+    {
+        $data       = Input::all();
+        $validation = ProfileService::validate('profile.password', $data);
+        $profile_id = Auth::user()->id;
+
+        // If the form validation fails, we want to flash the Input values so we
+        // have them when re-displaying the form to the user, then Redirect.
+        if ($validation->fails()) {
+            Input::flash();
+
+            return Redirect::route('profile.password')
+                ->with('success', false)
+                ->withErrors($validation);
+        }
+
+        // Create a ProfileEntity and populate the POSTed fields.
+        $profile = new ProfileEntity((int)$profile_id);
+        $profile->setPassword($data['password']['new']);
+        $profile->hashPassword();
+
+        // Save the ProfileEntity
+        $success = $this->repository->save($profile);
+
+        // Fire the profile.account_save event so listeners know that an account
+        // has been saved.
+        $ep = array(
+            'profile_id' => $profile_id,
+            'success' => $success,
+            'timestamp' => time(),
+        );
+        Event::fire('profile.password.save', array($ep));
+
+        // Redirect the user to the profile form with a success flag.
+        return Redirect::route('profile.password')
+            ->with('success', $success);
+    }
+
     /**
      * Displaying the settings form to the user
      *
