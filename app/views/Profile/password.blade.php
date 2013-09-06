@@ -23,37 +23,37 @@
 
 <div class="row-fluid form-row{{ $errors->has('password_current') ? ' error' : '' }}">
     <div class="span3">
-        {{ Form::label('password_current', Lang::get('profile/strings.labels.password')) }}
+        {{ Form::label('password[current]', Lang::get('profile/strings.labels.password')) }}
     </div>
     <div class="span8">
-        {{ Form::password('password_current') }}
-        {{ $errors->has('password_current') ? $errors->first('password_current', Config::get('rtconfig.format.validation_message')) : '' }}
+        {{ Form::password('password[current]') }}
+        {{ $errors->has('password[current]') ? $errors->first('password[current]', Config::get('rtconfig.format.validation_message')) : '' }}
     </div>
 </div>
 
 <div class="row-fluid form-row{{ $errors->has('password_new') ? ' error' : '' }}">
     <div class="span3">
-        {{ Form::label('password_new', Lang::get('profile/strings.labels.new_password')) }}
+        {{ Form::label('password[new]', Lang::get('profile/strings.labels.new_password')) }}
     </div>
     <div class="span8">
-        {{ Form::password('password_new') }}
-        {{ $errors->has('password_new') ? $errors->first('password_new', Config::get('rtconfig.format.validation_message')) : '' }}
+        {{ Form::password('password[new]') }}
+        {{ $errors->has('password[new]') ? $errors->first('password[new]', Config::get('rtconfig.format.validation_message')) : '' }}
     </div>
 </div>
 
 <div class="row-fluid form-row{{ $errors->has('password_verify') ? ' error' : '' }}">
     <div class="span3">
-        {{ Form::label('password_verify', Lang::get('profile/strings.labels.verify_password')) }}
+        {{ Form::label('password[verify]', Lang::get('profile/strings.labels.verify_password')) }}
     </div>
     <div class="span8">
-        {{ Form::password('password_verify') }}
-        {{ $errors->has('password_verify') ? $errors->first('password_verify', Config::get('rtconfig.format.validation_message')) : '' }}
+        {{ Form::password('password[verify]') }}
+        {{ $errors->has('password[verify]') ? $errors->first('password[verify]', Config::get('rtconfig.format.validation_message')) : '' }}
     </div>
 </div>
 
 <div class="row-fluid control-row">
     <div class="span3"></div>
-    <div class="span8">{{ Form::button('Save', array('class'=>'btn btn-primary')) }}</div>
+    <div class="span8">{{ Form::submit('Save', array('class'=>'btn btn-primary')) }}</div>
 </div>
 {{ Form::close() }}
 
