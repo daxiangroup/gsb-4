@@ -40,7 +40,7 @@ class LoginController extends BaseController {
             return Redirect::to('/dashboard');
         }
 
-        return View::make('login.index');
+        return View::make('Login.index');
     }
 
     public function postIndex()
