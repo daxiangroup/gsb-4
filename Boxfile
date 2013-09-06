@@ -5,4 +5,8 @@ web1:
     - mcrypt
     - mysql
   shared_writable_dirs:
-    - /app/storage
+    - /app/storage/cache
+    - /app/storage/logs
+    - /app/storage/meta
+    - /app/storage/sessions
+    - /app/storage/views
