@@ -1,7 +1,7 @@
-@extends('layouts/left40')
+@extends('Layouts/left40')
 
 @section('content-left')
-@include('profile.navigation')
+@include('Profile.navigation')
 @stop
 
 @section('content-right')

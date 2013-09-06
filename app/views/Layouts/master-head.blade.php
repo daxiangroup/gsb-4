@@ -19,7 +19,7 @@
             <div class="logo">GSB<span>Group Study Buddy Y'all...</span></div>
 
             <div role="navigation">
-            @include('layouts.navigation')
+            @include('Layouts.navigation')
             </div>
         </div>
     </div>

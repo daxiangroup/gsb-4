@@ -1,7 +1,7 @@
-@extends('layouts/left40')
+@extends('Layouts/left40')
 
 @section('content-left')
-@include('group.navigation')
+@include('Group.navigation')
 @stop
 
 @section('content-right')
@@ -13,12 +13,12 @@
 
 <div id="lst-my-groups" class="container">
 @foreach ($groups as $group)
-    @include('group.partials.my_groups.listing')
+    @include('Group.partials.my_groups.listing')
 @endforeach
 </div>
 
 @if (count($groups))
-    @include('group.partials.my_groups.part-modal')
+    @include('Group.partials.my_groups.part-modal')
 @endif
 
 @stop

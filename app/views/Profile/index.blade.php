@@ -1,8 +1,8 @@
-@extends('layouts.left40')
+@extends('Layouts.left40')
 {{-- TODO: Ensure this view is properly localized - lang is hardcoded --}}
 
 @section('content-left')
-@include('profile.navigation')
+@include('Profile.navigation')
 @stop
 
 @section('content-right')

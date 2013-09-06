@@ -1,5 +1,5 @@
-@include('layouts/master-head')
+@include('Layouts.master-head')
 
 @yield('content')
 
-@include('layouts/master-footer')
+@include('Layouts.master-footer')

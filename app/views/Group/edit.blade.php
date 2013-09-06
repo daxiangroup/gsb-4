@@ -1,7 +1,7 @@
-@extends('layouts/left40')
+@extends('Layouts/left40')
 
 @section('content-left')
-@include('group.navigation')
+@include('Group.navigation')
 @stop
 
 @section('page-specific-js-footer')
@@ -135,7 +135,7 @@
 
 <p>{{ Lang::get('Group/intros.create-meetings') }}</p>
 
-@include('group.partials.edit.meetings')
+@include('Group.partials.edit.meetings')
 
 
 <div class="row-fluid control-row">

@@ -1,7 +1,7 @@
-@extends('layouts/left40')
+@extends('Layouts/left40')
 
 @section('content-left')
-@include('group.navigation')
+@include('Group.navigation')
 @stop
 
 @section('page-specific-js-footer')
@@ -39,7 +39,7 @@ group-view @stop
         <div class="row-fluid">
             <div class="span12 group-controls">
                 @if ($group->hasSpots() && !$group->inGroup(Auth::user()->id) && !$group->isAdmin(Auth::user()->id))
-                @include('group.partials.view.join-modal')
+                @include('Group.partials.view.join-modal')
                 @endif
 
                 @if ($group->isAdmin(Auth::user()->id))

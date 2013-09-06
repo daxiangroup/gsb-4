@@ -1,7 +1,7 @@
-@extends('layouts.left40')
+@extends('Layouts.left40')
 
 @section('content-left')
-@include('dashboard.navigation')
+@include('Dashboard.navigation')
 @stop
 
 @section('content-right')
