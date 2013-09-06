@@ -1,4 +1,6 @@
 web1:
   name: app
+  document_root: public/
   php_extensions:
     - mcrypt
+    - mysql
