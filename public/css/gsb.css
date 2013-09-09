@@ -126,6 +126,9 @@ div[role="navigation"] {
 .group-buddies {
   display: none; }
 
+.group-study {
+  border: solid 1px #ccc; }
+
 /*****[ testing ]*/
 .arf [class*="span"] {
   outline: solid 1px #c00; }

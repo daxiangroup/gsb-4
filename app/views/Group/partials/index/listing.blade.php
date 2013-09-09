@@ -9,7 +9,7 @@
                 {{ $group->getHeadline() }}
             </div>
         </div>
-        <div class="row-fluid">
+        <div class="row-fluid"></div>
 
         <div class="lbl">Headline:</div>
 
