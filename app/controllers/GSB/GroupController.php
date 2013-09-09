@@ -196,6 +196,7 @@ class GroupController extends BaseController {
 
     public function postGroupCreate()
     {
+        // TODO: use local variable for all Input::get()'s.
         $validation = GroupService::validate('group-create', Input::all());
 
         $profile_id = Auth::user()->id;
@@ -214,7 +215,7 @@ class GroupController extends BaseController {
         $group = new GroupEntity();
         $group->setName(Input::get('group.name'));
         $group->setGraduatingYear(Input::get('group.graduating_year'));
-        $group->setAdminId(Input::get('group.admin_id'));
+        $group->setAdminId($profile_id);
         $group->setCoAdminId(Input::get('group.co_admin_id'));
         $group->setMaxSize(Input::get('group.max_size'));
         $group->setHeadline(Input::get('group.headline'));
@@ -222,10 +223,19 @@ class GroupController extends BaseController {
         $group->setVisibility(Input::get('group.visibility'));
         $group->setCreated();
 
-        // Save the GroupEntity
+        // Save the GroupEntity. $success will be the auto-incremented id of
+        // the added group.
         $success = $this->repository->saveGroup($group);
 
-        // TODO: After creating a group, add the creator to the buddies list
+        // Create the GroupBuddyEntity of the user creating the Group.
+        $buddy = new GroupBuddyEntity();
+        $buddy->setGroupId($success);
+        $buddy->setProfileId($profile_id);
+        $buddy->setStatus(GroupBuddyEntity::VAL_STATUS_APPROVED);
+        $buddy->setCreated();
+
+        // Save the GroupBuddyEntity.
+        $success = $this->repository->saveBuddy($buddy);
 
         // Fire the group.save event so listeners know that an group
         // has been saved.

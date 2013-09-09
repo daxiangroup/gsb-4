@@ -100,16 +100,43 @@ class GroupEloquentRepository implements GroupRepository
 
     public static function saveBuddy(GroupBuddyEntity $buddy)
     {
-        try {
-            $affected = DB::connection('app_w')
-                ->table('groups_buddies')
-                ->insert($buddy->fieldsAsArray());
-            return true;
-        } catch (\Exception $e) {
-            GSBException::database('Database problem');
+        // Set a local array of the GroupBuddy fields to save in both insert and
+        // update.
+        $fields = $buddy->fieldsAsArray(
+            true,
+            false
+        );
+
+        // If the $buddy's id is null, it means we're saving a new buddy and need
+        // to do an insert.
+        if (is_null($buddy->getId())) {
+            try {
+                $id = DB::connection('app_w')
+                    ->table('groups_buddies')
+                    ->insertGetId($fields);
+                return $id;
+            } catch (\Exception $e) {
+                GSBException::database('Database problem 1');
+                return false;
+            }
         }
 
-        return false;
+        // If we made it down here, there is an id in the $buddy and we are editing
+        // an existing buddy, so we need to do an update.
+        try {
+            // We need to unset the Buddy's id field because we're doing an update.
+            // The id field is only required for inserting a new record.
+            unset($fields[GroupBuddyEntity::FLD_ID]);
+
+            $affected = DB::connection('app_w')
+                ->table('groups')
+                ->where('id', $buddy->getId())
+                ->update($fields);
+            return true;
+        } catch (\Exception $e) {
+            GSBException::database('Database problem 2');
+            return false;
+        }
     }
 
     public static function deleteBuddy(GroupBuddyEntity $buddy)
@@ -152,10 +179,10 @@ class GroupEloquentRepository implements GroupRepository
         // to do an insert.
         if (is_null($group->getId())) {
             try {
-                $affected = DB::connection('app_w')
+                $id = DB::connection('app_w')
                     ->table('groups')
-                    ->insert($fields);
-                return true;
+                    ->insertGetId($fields);
+                return $id;
             } catch (\Exception $e) {
                 GSBException::database('Database problem 1');
                 return false;

@@ -10,8 +10,6 @@ class GroupBuddyEntity extends Entity
     protected $profile_id = null;
     protected $status = null;
 
-    protected $fields = array();
-
     const FLD_ID = 'id';
     const FLD_GROUP_ID = 'group_id';
     const FLD_PROFILE_ID = 'profile_id';
