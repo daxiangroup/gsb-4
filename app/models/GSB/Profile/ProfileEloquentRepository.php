@@ -9,7 +9,10 @@ class ProfileEloquentRepository implements ProfileRepository
     {
         // Set a local array of the Profile fields to save in both insert and
         // update.
-        $fields = $profile->fieldsAsArray(true, false);
+        $fields = $profile->fieldsAsArray(
+            true,
+            false
+        );
 
         // If the $profile's id is null, it means we're saving a new profile
         // and need to do an insert.
