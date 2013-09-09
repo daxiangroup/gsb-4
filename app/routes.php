@@ -22,7 +22,7 @@ Route::get('/', array('as'=>'home', function()
 Route::get('/',                  array('as'=>'home',                  'uses'=>'GSB\LoginController@getIndex'));
 
 Route::get('/login',             array('as'=>'login',                 'uses'=>'GSB\LoginController@getIndex'));
-Route::post('/login',            array(                               'uses'=>'GSB\LoginController@postIndex'));
+Route::post('/login',            array('as'=>'login.login',           'uses'=>'GSB\LoginController@postIndex'));
 Route::get('/logout',            array('as'=>'logout',                'uses'=>'GSB\LoginController@getLogout'));
 
 Route::get('/signup',            array('as'=>'signup',                'uses'=>'GSB\SignupController@getIndex'));
