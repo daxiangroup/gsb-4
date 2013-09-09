@@ -3,7 +3,7 @@
 @section('content')
 <div class="row-fluid">
     <div class="span4">
-        {{ Form::open() }}
+        {{ Form::open(array('url'=>URL::route('login.login'))) }}
         {{ Form::token() }}
         <div class="form-row">
             <div class="form-label">{{ Form::label('login', 'Login') }}</div>
