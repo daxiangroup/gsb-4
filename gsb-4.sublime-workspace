@@ -1,0 +1,1234 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"email_camp",
+				"email_campaign_criteria"
+			],
+			[
+				"reseller",
+				"resellerInfo"
+			],
+			[
+				"resell",
+				"resellerInfo"
+			],
+			[
+				"hash",
+				"hash_request"
+			],
+			[
+				"clic",
+				"click_pixel_args"
+			],
+			[
+				"_source",
+				"_sourceFileSize"
+			],
+			[
+				"restartSche",
+				"restartSchedule"
+			],
+			[
+				"Re",
+				"RestartSchedule"
+			],
+			[
+				"extra",
+				"extra_vars"
+			],
+			[
+				"cam",
+				"campaign_id"
+			],
+			[
+				"promo",
+				"promo_code"
+			],
+			[
+				"E_USER",
+				"E_USER_WARNING"
+			],
+			[
+				"affi",
+				"affiliate_oneclick_account_api"
+			],
+			[
+				"_iframe",
+				"_iframe_uri"
+			],
+			[
+				"_resource",
+				"_resource_path_affiliate"
+			],
+			[
+				"private",
+				"private_label_info"
+			],
+			[
+				"priva",
+				"private_label_info"
+			],
+			[
+				"url",
+				"urlencode"
+			],
+			[
+				"fie",
+				"fields_string"
+			],
+			[
+				"STAGE_building",
+				"STAGE_building_package"
+			],
+			[
+				"Ex",
+				"Expanding"
+			],
+			[
+				"STAGE",
+				"STAGE_remotes"
+			],
+			[
+				"E",
+				"E_USER_ERROR"
+			],
+			[
+				"PA",
+				"PATH_site_directory"
+			],
+			[
+				"list-style",
+				"list-style-image"
+			],
+			[
+				"control",
+				"controllers"
+			],
+			[
+				"readRef",
+				"readRefUrl"
+			],
+			[
+				"get",
+				"getElementById"
+			],
+			[
+				"arrRe",
+				"arrRequest"
+			],
+			[
+				"temp",
+				"templates"
+			],
+			[
+				"query",
+				"queryUri"
+			],
+			[
+				"REQU",
+				"REQUEST_URI"
+			],
+			[
+				"dispat",
+				"dispatcher_file"
+			],
+			[
+				"player_state_non",
+				"player_state_non_existent_label"
+			],
+			[
+				"player_state",
+				"player_state_non_existent"
+			],
+			[
+				"is_in",
+				"is_integer"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "app/routes.php",
+			"settings":
+			{
+				"buffer_size": 3995,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/controllers/GSB/ProfileController.php",
+			"settings":
+			{
+				"buffer_size": 5272,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/controllers/GSB/BuddyController.php",
+			"settings":
+			{
+				"buffer_size": 839,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/controllers/GSB/GroupController.php",
+			"settings":
+			{
+				"buffer_size": 11704,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/models/GSB/Group/GroupEntity.php",
+			"settings":
+			{
+				"buffer_size": 8722,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/models/GSB/Profile/ProfileEntity.php",
+			"settings":
+			{
+				"buffer_size": 6206,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/models/GSB/Group/GroupMeetingEntity.php",
+			"settings":
+			{
+				"buffer_size": 2837,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/models/GSB/Group/GroupEloquentRepository.php",
+			"settings":
+			{
+				"buffer_size": 6718,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/Group/view.blade.php",
+			"settings":
+			{
+				"buffer_size": 3555,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/Buddy/view.blade.php",
+			"settings":
+			{
+				"buffer_size": 3035,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/Buddy/navigation.blade.php",
+			"settings":
+			{
+				"buffer_size": 419,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 67.0,
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				":w",
+				":w - Save"
+			],
+			[
+				":q",
+				"Set Syntax: SQL"
+			]
+		],
+		"width": 593.0
+	},
+	"console":
+	{
+		"height": 363.0,
+		"history":
+		[
+			"clear",
+			"vlear",
+			"phpcs_clear_sniffer_marks",
+			"phpcs_sniff_this_file",
+			"clear_sniffer_marks",
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/tylers/Sites/gsb-4/app/views/Buddy/navigation.blade.php",
+		"/Users/tylers/Sites/gsb-4/app/controllers/BaseController.php",
+		"/Users/tylers/Sites/gsb-4/app/models/GSB/Group/GroupRepository.php",
+		"/Users/tylers/Projects/PL499v1/branch/maildispatcher/include/ui.php",
+		"/Users/tylers/Projects/VT100-84-Mailers/branch/maildispatcher/assembler/assembler.php",
+		"/Users/tylers/Projects/PL497v1/branch/content/resources_de/vendor/webtrends/dcs_tag.js",
+		"/private/tmp/billing_history-parsed.txt",
+		"/Users/tylers/Projects/PL497v1/branch/zeta/www/input.php",
+		"/Users/tylers/Projects/PL497v1/branch/datingengine/www/datingengine/request_actions/de_util_class.php",
+		"/Users/tylers/Projects/PL495v1/branch/de/www/go/confirmation.php",
+		"/Users/tylers/Projects/PL497v1/branch/datingengine/www/datingengine/dispatcher/datingengine_dispatcher.class.php",
+		"/Users/tylers/Projects/PL497v1/branch/datingengine/www/datingengine/request_actions/login_base.php",
+		"/Users/tylers/Projects/PL497v1/branch/datingengine/www/datingengine/ecmi/cron/get_billing_history.php",
+		"/Users/tylers/Projects/PL497v1/branch/common/queue/queued.php",
+		"/Users/tylers/Projects/PL497v1/branch/tour-ajax/get_location.php",
+		"/Users/tylers/Projects/PL497v1/branch/de/www/ext_api/get_location.php",
+		"/Users/tylers/Projects/PL497v1/branch/de/www/ext_api/tour_create_account.php",
+		"/Users/tylers/Projects/PL497v1/branch/de/www/ext_api/tour_create_profile.php",
+		"/Users/tylers/Projects/PL497v1/branch/datingengine/www/datingengine/relay/request_actions/relay/join_relay_account.class.php",
+		"/Users/tylers/Projects/PL497v1/branch/datingengine/www/datingengine/request_actions/join_process/ext_create_account_request_action.php",
+		"/Users/tylers/Projects/PL497v1/branch/datingengine/www/datingengine/relay/request_actions/relay/join_relay.class.php",
+		"/Users/tylers/Projects/PL497v1/branch/test/datingengine/external_join/relay/join_relay.class.php",
+		"/Users/tylers/Projects/PL497v1/branch/datingengine/www/datingengine/relay/request_actions/relay/join_relay_profile.class.php",
+		"/Users/tylers/Projects/PL497v1/branch/datingengine/www/datingengine/request_actions/join_process/ext_create_profile_request_action.php",
+		"/Users/tylers/Projects/PL497v1/branch/datingengine/www/datingengine/request_actions/join_process/external_join_request_action.php",
+		"/Users/tylers/Sites/decode.html",
+		"/Users/tylers/Projects/PL497v1/branch/zeta/scripts/manager.php",
+		"/Users/tylers/Projects/PL497v1/branch/zeta/reporter/status.php",
+		"/Users/tylers/Projects/PL497v1/branch/zeta/reporter/query-tool.php",
+		"/Users/tylers/Projects/PL497v1/branch/zeta/nagios/schedule_state.php",
+		"/Users/tylers/Projects/PL497v1/branch/zeta/include/schedules.php",
+		"/Users/tylers/Projects/PL497v1/branch/zeta/include/query.php",
+		"/Users/tylers/Sites/thelastprophet/download.php",
+		"/Users/tylers/Sites/thelastprophet/css/main.css",
+		"/Users/tylers/Projects/PL498v1/branch/config/pl_ids/1/config.php",
+		"/Users/tylers/Projects/trunk/branch/test/devbox/releases.txt",
+		"/Users/tylers/Projects/PL498v1/branch/datingengine/www/datingengine/templates/default/aoj/style_4/1_2/aoj.tpl",
+		"/Users/tylers/Projects/PL498v1/branch/setup/linux/blackbox-de/overlay/etc/cron.d/blackbox-de",
+		"/Users/tylers/Projects/PL498v1/branch/datingengine/www/datingapi/featured_member/featured_member_data_base.class.php",
+		"/Users/tylers/Projects/PL498v1/branch/datingengine/www/datingapi/featured_member/featured_member_cron_data.class.php",
+		"/Users/tylers/Projects/PL498v1/branch/datingengine/www/datingapi/featured_member/featured_member_cron_api.class.php",
+		"/Users/tylers/Projects/PL498v1/branch/datingengine/www/datingapi/featured_member/cron/featured_member_cron.php",
+		"/Users/tylers/Projects/PL498v1/branch/setup/mac/makepackage",
+		"/Users/tylers/Projects/PL498v1/branch/setup/mac/tag.sh",
+		"/Users/tylers/Projects/PL498v1/branch/setup/mac/makebuild.sh",
+		"/Users/tylers/Projects/PL498v1/branch/setup/linux/app-de/overlay/etc/apache2/sites-available/app-de",
+		"/Users/tylers/Projects/PL498v1/branch/setup/linux/app-de/overlay/etc/apache2/sites-available/www2",
+		"/Users/tylers/Projects/PL498v1/branch/datingengine/www/datingengine/relay/config/aoj_template_remap_config.ini.php",
+		"/Users/tylers/Projects/PL498v1/branch/de/include/email_suffixes_private_label_assoc_data.php",
+		"/Users/tylers/Projects/PL498v1/branch/common/ppl/pixel_request_class.php.prod.html",
+		"/Users/tylers/Desktop/confirmation.php.prod.html",
+		"/Users/tylers/Projects/PL498v1/branch/datingengine/www/datingengine/config/third_party/promocode_mapping_ini.php",
+		"/Users/tylers/Projects/PL498v1/branch/setup/mac/mail/overlay/private/etc/postfix/aliases",
+		"/Users/tylers/Projects/PL498v1/branch/tour/applications/admin/application/core/Ick/PrivateLabel/File/Dao.php",
+		"/Users/tylers/Projects/PL494v1/branch/datingengine/scripts/convert2cambeta.php",
+		"/Users/tylers/Projects/PL494v1/branch/de/templates/1/en/confirmation-v1.tpl",
+		"/Users/tylers/Projects/PL494v1/branch/datingengine/www/datingapi/profile_event/profile_event_data.class.php",
+		"/Users/tylers/Projects/PL494v1/branch/datingengine/www/datingapi/profile_event/basic_member_promo_event.class.php",
+		"/Users/tylers/Projects/PL494v1/branch/datingengine/www/datingapi/profile_event/profile_event_info.class.php",
+		"/Users/tylers/Projects/PL494v1/branch/de/include/profile.class.php",
+		"/Users/tylers/Projects/PL494v1/branch/datingengine/www/datingengine/templates/eroticlove/common_page_basic.tpl",
+		"/Users/tylers/Projects/PL494v1/branch/datingengine/www/datingengine/config/controller_config.ini.php",
+		"/Users/tylers/Projects/PL494v1/branch/common/controller/controller_constants.inc.php",
+		"/Users/tylers/Projects/PL494v1/branch/common/controller/controller_api.class.php",
+		"/Users/tylers/Projects/PL494v1/branch/common/ppl/ppl_logger_class.php",
+		"/Users/tylers/Projects/PL494v1/branch/de/templates/26/en/navigation_top.tpl",
+		"/Users/tylers/Projects/PL494v1/branch/commerce/www/controller/controller_constants.inc.php",
+		"/Users/tylers/Projects/PL494v1/branch/datingengine/scripts/1700s.csv",
+		"/Users/tylers/Projects/PL494v1/branch/setup/mac/makebuild.sh",
+		"/Users/tylers/Desktop/1600_basic_accounts-PreProd-PARSED",
+		"/Users/tylers/Desktop/1700_basic_accounts-PreProd-PARSED.csv",
+		"/Users/tylers/Projects/PL494v1/branch/datingengine/www/datingengine/mediaupload/request_actions/attachment_upload.php",
+		"/Users/tylers/Projects/PL494v1/branch/common/ppl/ppl_logger_send.php",
+		"/Users/tylers/Projects/PL494v1/branch/datingengine/www/cms/request_actions/request_action_cms_profile_verification_class.php",
+		"/Users/tylers/Projects/PL494v1/branch/datingengine/www/datingengine/dispatcher/datingengine_dispatcher.class.php",
+		"/Users/tylers/Projects/PL494v1/branch/zeta/www/input.php",
+		"/Users/tylers/Projects/PL494v1/branch/datingengine/www/datingapi/member/member_api_web.autoclass.php",
+		"/Users/tylers/Projects/PL494v1/branch/datingengine/www/datingapi/business_rule/business_rule_api.autoclass.php",
+		"/Users/tylers/Projects/PL494v1/branch/datingengine/www/datingengine/request_actions/upgrade_c.php",
+		"/private/tmp/business_rule_data-send.sql",
+		"/private/tmp/business_rule_data.sql",
+		"/Users/tylers/Projects/PL494v1/branch/datingengine/www/datingapi/account/account_info_class.php",
+		"/Users/tylers/Projects/PL494v1/branch/datingengine/www/datingapi/account/account_constants.php",
+		"/Users/tylers/Projects/PL494v1/branch/common/controller/template_manager/template_manager.class.php",
+		"/Users/tylers/Projects/PL494v1/branch/datingengine/www/datingapi/email_campaign/email_campaign_info.class.php",
+		"/Users/tylers/Projects/PL494v1/branch/datingengine/www/datingengine/ecmi/cron/de_data_collector_cron.php",
+		"/Users/tylers/Projects/PL494v1/branch/datingengine/www/controller/request_actions/abstract_request_action.php",
+		"/Users/tylers/Projects/PL494v1/branch/datingengine/www/event_processing/abstract_event_class.php",
+		"/Users/tylers/Projects/PL494v1/branch/datingengine/www/datingengine/epc/events/event_epsilon_state_change_class.php",
+		"/Users/tylers/Projects/PL494v1/branch/datingengine/www/datingengine/epc/api/epc_client_api_class.php",
+		"/Users/tylers/Projects/PL494v1/branch/datingengine/www/datingengine/templates/default/upgrade_basic_w_billing_layout.tpl",
+		"/Users/tylers/Projects/PL494v1/branch/config/openx/xxxlove.com.ini.php",
+		"/Users/tylers/Projects/PL494v1/branch/datingengine/www/datingengine/templates/default/banner_ads_upgrade_c.tpl",
+		"/Users/tylers/Projects/PL494v1/branch/datingengine/www/datingengine/templates/default/sidebar_upgrade.tpl",
+		"/Users/tylers/Projects/trunk/branch/fdr/fdr.php",
+		"/Users/tylers/Projects/trunk/branch/de/www/go/confirmation.php",
+		"/Users/tylers/Projects/PL494v1/branch/de/www/go/confirmation.php",
+		"/Users/tylers/Projects/PL494v1/branch/datingengine/www/datingengine/request_actions/email_msg_send_c.php",
+		"/Users/tylers/Projects/PL494v1/branch/datingengine/www/datingengine/dispatcher/datingengine_config.ini.php",
+		"/Users/tylers/Projects/PL494v1/branch/datingengine/www/datingengine/templates/default/email_message_c.tpl",
+		"/Users/tylers/Projects/PL494v1/branch/datingengine/www/datingapi/ems/ems_api_class.php",
+		"/Users/tylers/Projects/PL494v1/branch/datingengine/www/datingapi/ems/ems_data_class.php",
+		"/Users/tylers/Projects/PL494v1/branch/fdr/fdr.php",
+		"/Users/tylers/Projects/PL494v1/branch/datingengine/www/datingapi/zeta_input/zeta_input.class.php",
+		"/Users/tylers/Projects/PL494v1/branch/datingengine/www/event_processing/file_event_handler_class.php",
+		"/Users/tylers/Projects/PL494v1/branch/datingengine/www/datingapi/common/base_class.autoclass.php",
+		"/Users/tylers/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/tylers/Projects/PL494v1/branch/common/url_retry/retry_curl_request.php",
+		"/Users/tylers/Projects/PL494v1/branch/tour/applications/common/config/common_tour_config.php",
+		"/Users/tylers/Projects/PL494v1/branch/datingengine/www/datingengine/templates/default/aoj/style_1/1_2/aoj.tpl",
+		"/Users/tylers/Projects/PL494v1/branch/datingengine/www/datingengine/templates/default/aoj/style_5/1_2/aoj.tpl",
+		"/Users/tylers/Projects/PL494v1/branch/datingengine/www/datingengine/relay/request_actions/affiliate_oneclick_create_account.php",
+		"/Users/tylers/Projects/PL494v1/branch/datingengine/www/datingengine/request_actions/email_inbox_c.php",
+		"/Users/tylers/Projects/PL494v1/branch/datingengine/www/datingengine/request_actions/email_message_c.php",
+		"/Users/tylers/Projects/PL494v1/branch/datingengine/www/datingengine/relay/config/aoj_template_remap_config.ini.php",
+		"/Users/tylers/Projects/PL494v1/branch/datingengine/www/datingapi/account/account_data_class.autoclass.php",
+		"/Users/tylers/Projects/PL494v1/branch/datingengine/www/datingapi/account/account_api_class.php",
+		"/Users/tylers/Projects/PL494v1/branch/commerce/www/dbi/dbi.class.php",
+		"/Users/tylers/Projects/PL494v1/branch/common/client_detection/client_detection.class.php",
+		"/Users/tylers/Projects/PL494v1/branch/datingengine/www/datingengine/relay/request_actions/relay/join_relay_affiliate_oneclick_account.class.php",
+		"/Users/tylers/Projects/PL494v1/branch/datingengine/www/datingengine/relay/request_actions/relay/join_relay.class.php",
+		"/Users/tylers/Projects/PL494v1/branch/datingengine/www/datingengine/relay/request_actions/former_member_promo.php",
+		"/Users/tylers/Projects/PL494v1/branch/datingengine/www/datingengine/relay/config/aoj_processor_map_config.ini.php",
+		"/Users/tylers/Library/Application Support/Sublime Text 3/Packages/User/phpcs.sublime-settings",
+		"/Users/tylers/Projects/PL494v1/branch/commerce/www/commerce/affiliate/cron/classes/interwebvertising_ftp_dump.class.php",
+		"/Users/tylers/Projects/PL494v1/branch/zeta/include/common_functions.php",
+		"/Users/tylers/Library/Application Support/Sublime Text 3/Packages/Phpcs/Default (OSX).sublime-keymap",
+		"/Users/tylers/Library/Application Support/Sublime Text 3/Packages/Phpcs/phpcs.sublime-settings"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"<open files>",
+			"/Users/tylers/Projects/PL499v1/branch/maildispatcher",
+			"/Users/tylers/Projects/PL497v1/branch",
+			"/Users/tylers/Projects/PL497v1/branch/zeta",
+			"/Users/tylers/Projects/PL494v1/branch/datingengine/www/datingengine/templates",
+			"/Users/tylers/Projects/PL494v1/branch/de/templates",
+			"/Users/tylers/Projects/PL494v1/branch",
+			"/Users/tylers/Projects/PL494v1/branch/datingengine",
+			"/Users/tylers/Projects/PL494v1/branch/datingengine/www/datingengine/request_actions",
+			"/Users/tylers/Projects/PL494v1/branch/datingengine/www/datingengine/templates/default",
+			"/Users/tylers/Projects/PL494v1/branch/tour",
+			"/Users/tylers/Projects/PL494v1/branch",
+			"/Users/tylers/Projects/PL494v1/branch/tour",
+			"/Users/tylers/Projects/PL494v1/branch",
+			"/Users/tylers/Projects/PL494v1/branch/common",
+			"/Users/tylers/Projects/PL494v1/branch/common/dbi",
+			"/Users/tylers/Projects/PL492v1/branch",
+			"/Users/tylers/Projects/PL492v1/branch/datingengine/www/datingengine/templates/default",
+			"/Users/tylers/Projects/PL492v1/branch/de/templates",
+			"/Users/tylers/Projects/PL492v1/branch/datingengine/www/datingengine/templates/default",
+			"/Users/tylers/Projects/PL492v1/branch/de/templates",
+			"/Users/tylers/Projects/PL492v1/branch",
+			"/Users/tylers/Projects/PL489v1/branch/setup",
+			"/Users/tylers/Projects/PL489v1/branch/config/fdr",
+			"/Users/tylers/Projects/PL489v1/branch/setup/linux/fdr",
+			"/Users/tylers/Projects/PL489v1/branch/fdr",
+			"/Users/tylers/Projects/PL489v1/branch",
+			"/Users/tylers/Projects/PL489v1/branch/de/templates",
+			"/Users/tylers/Projects/PL489v1/branch/maildispatcher",
+			"/Users/tylers/Projects/PL489v1/branch/de",
+			"/Users/tylers/Projects/PL489v1/branch",
+			"/Users/tylers/Projects/PL490v1/branch",
+			"/Users/tylers/Projects/PL490v1/branch/setup/linux/wordpress",
+			"/Users/tylers/Projects/PL490v1/branch/datingengine/www/datingengine/templates/default",
+			"/Users/tylers/Projects/PL490v1/branch/datingengine/www/cms/request_actions",
+			"/Users/tylers/Projects/PL490v1/branch/datingengine/www/datingengine/request_actions",
+			"/Users/tylers/Projects/PL490v1/branch/datingengine/www/datingengine/templates/default",
+			"/Users/tylers/Projects/PL490v1/branch",
+			"/Users/tylers/Projects/PL490v1/branch/common",
+			"/Users/tylers/Projects/PL490v1/branch/config",
+			"/Users/tylers/Projects/PL490v1/branch/common",
+			"/Users/tylers/Projects/PL490v1/branch",
+			"/Users/tylers/Projects/PL490v1/branch/datingengine",
+			"/Users/tylers/Projects/PL490v1/branch/common",
+			"/Users/tylers/Projects/PL490v1/branch/datingengine",
+			"/Users/tylers/Projects/PL490v1/branch/common",
+			"/Users/tylers/Projects/PL490v1/branch/setup/linux",
+			"/Users/tylers/Projects/PL487v2/branch/datingengine/www/datingengine/dispatcher",
+			"/Users/tylers/Projects/PL487v2/branch/datingengine/www/datingengine/request_actions",
+			"/Users/tylers/Projects/PL487v2/branch",
+			"/Users/tylers/Projects/PL487v2/branch/common/queue/events",
+			"/Users/tylers/Projects/PL487v2/branch",
+			"/Users/tylers/Projects/PL487v1/branch",
+			"/Users/tylers/Projects/PL487v1/branch/datingengine/www/datingengine/epc",
+			"/Users/tylers/Projects/PL487v1/branch",
+			"/Users/tylers/Projects/PL487v1/branch/content/resources_de/site/default/css/aoj",
+			"/Users/tylers/Projects/PL487v1/branch/commerce",
+			"/Users/tylers/Projects/PL487v1/branch/commerce/www/commerce/internal",
+			"/Users/tylers/Projects/PL488v1/branch",
+			"/Users/tylers/Projects/PL488v1/branch/maildispatcher",
+			"/Users/tylers/Projects/PL488v1/branch/datingengine/www/datingengine/oneclick",
+			"/Users/tylers/Projects/PL488v1/branch",
+			"/Users/tylers/Projects/PL488v1/branch/testharness",
+			"/Users/tylers/Projects/PL488v1/branch",
+			"/Users/tylers/Projects/PL488v1/branch/setup/linux/meta-media/overlay/etc/apache2/sites-available",
+			"/Users/tylers/Projects/PL488v1/branch/setup",
+			"/Users/tylers/Projects/PL488v1/branch/content/ecmi",
+			"/Users/tylers/Projects/PL488v1/branch/content",
+			"/Users/tylers/Projects/PL488v1/branch",
+			"/Users/tylers/Projects/PL488v1/branch/datingengine",
+			"/Users/tylers/Projects/PL488v1/branch",
+			"/Users/tylers/Projects/PL488v1/branch/tour",
+			"/Users/tylers/Projects/PL488v1/branch/config/coreg/access",
+			"/Users/tylers/Projects/PL488v1/branch/common",
+			"/Users/tylers/Projects/PL488v1/branch/commerce",
+			"/Users/tylers/Projects/PL488v1/branch/setup",
+			"/Users/tylers/Projects/PL488v1/branch/datingengine",
+			"/Users/tylers/Projects/PL488v1/branch/commerce",
+			"/Users/tylers/Projects/PL488v1/branch/setup/mac/billingdb",
+			"/Users/tylers/Projects/PL488v1/branch/commerce",
+			"/Users/tylers/Projects/PL488v1/branch",
+			"/Users/tylers/Projects/PL488v1/branch/datingengine/www/datingengine/epc",
+			"/Users/tylers/Projects/PL488v1/branch/setup",
+			"/Users/tylers/Projects/PL488v1/branch/datingengine",
+			"/Users/tylers/Projects/PL488v1/branch/datingengine/www/datingengine/templates/default",
+			"/Users/tylers/Projects/PL488v1/branch/tour",
+			"/Users/tylers/Projects/PL488v1/branch/datingengine",
+			"/Users/tylers/Projects/PL488v1/branch/datingengine/www/datingengine",
+			"/Users/tylers/Projects/PL488v1/branch/datingengine/www/datingengine/request_actions",
+			"/Users/tylers/Projects/PL488v1/branch/datingengine/www/datingengine/templates",
+			"/Users/tylers/Projects/PL488v1/branch/datingengine",
+			"/Users/tylers/Projects/PL488v1/branch",
+			"/Users/tylers/Projects/PL478v1/branch",
+			"/Users/tylers/Projects/PL478v1/branch/common/queue/events",
+			"/Users/tylers/Projects/PL478v1/branch",
+			"/Users/tylers/Projects/PL478v1/branch/datingengine",
+			"/Users/tylers/Projects/PL478v1/branch/setup/linux/app-de",
+			"/Users/tylers/Projects/PL486v1/branch/datingengine/www/datingengine",
+			"/Users/tylers/Projects/PL486v1/branch/datingengine/www/datingengine/dispatcher",
+			"/Users/tylers/Projects/PL482v1/branch",
+			"/Users/tylers/Projects/PL482v1/branch/tour",
+			"/Users/tylers/Projects/PL482v1/branch/tour/applications",
+			"/Users/tylers/Projects/PL482v1/branch",
+			"/Users/tylers/Projects/PL482v1/branch/config/fdr/domains",
+			"/Users/tylers/Projects/mobile/branch/ic-api",
+			"/Users/tylers/Projects/PL473v1/branch/zend-de/application/modules/profile/views/scripts",
+			"/Users/tylers/Projects/PL473v1/branch/content",
+			"/Users/tylers/Projects/PL473v1/branch/zend-de",
+			"/Users/tylers/Projects/PL473v1/branch/de",
+			"/Users/tylers/Projects/PL473v1/branch/datingengine",
+			"/Users/tylers/Projects/PL473v1/branch/de",
+			"/Users/tylers/Projects/PL471v1/branch/zend-de",
+			"/Users/tylers/Projects/PL471v1/branch/tour",
+			"/Users/tylers/Projects/PL471v1/branch/fdr",
+			"/Users/tylers/Projects/PL471v1/branch/common",
+			"/Users/tylers/Projects/PL471v1/branch",
+			"/Users/tylers/Projects/PL466v1/branch",
+			"/Users/tylers/Projects/PL466v1/branch/maildispatcher",
+			"/Users/tylers/Projects/PL466v1/branch/fdr",
+			"/Users/tylers/Projects/PL467v1/branch",
+			"/Users/tylers/Sites/rtoya",
+			"/Users/tylers/Sites/rtoya/bundles/application",
+			"/Users/tylers/Projects/PL457v2/branch/commerce/www/commerce",
+			"/Users/tylers/Projects/PL457v2/branch/commerce",
+			"/Users/tylers/Projects/PL465v1/branch",
+			"/Users/tylers/Projects/PL462v1/branch/datingengine/www/datingengine",
+			"/Users/tylers/Projects/PL462v1/branch/de",
+			"/Users/tylers/Projects/PL462v1/branch"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"mdmysterion",
+			"relay_servers",
+			"TAG",
+			"REPO",
+			"$Z",
+			"setCookie",
+			"dkim_sign",
+			"cookie",
+			"bw",
+			"DE_SEL_HOME",
+			"home'",
+			"home",
+			"home_c",
+			"highBandwidth",
+			"bandwidth",
+			"delete from",
+			"ecdc_pr_last_logged_on",
+			"creation_end =",
+			"ADDTIME",
+			"('.*')\\);",
+			"^([0-9]{1,7})\\t([0-9])\\t(.*)",
+			"$last_logon_start",
+			"client",
+			"_ip",
+			"ip",
+			"profile_create_notify",
+			"INPUT_URL",
+			"zeta",
+			"login",
+			"input.php",
+			"gentle",
+			"links",
+			"content-container",
+			"footer",
+			"fuckbook.net",
+			"custom",
+			"fuckbook",
+			"([0-9]) - ",
+			"$",
+			"^",
+			"myxxxhookup",
+			"socialhookups",
+			"^([a-z]{1,20}) is in.*([0-9]{5})$",
+			"_logMsg",
+			"DIR_RESTART_LOG",
+			"_logMsg",
+			"chat hoverable",
+			"^\\| ",
+			" {1,}\\|",
+			"^\\| ",
+			"thedatingnetwork.com",
+			"profile_event_schedule",
+			"datingengine",
+			"input.php",
+			"GetPPLHash",
+			"hash",
+			"email_send_per_session_max",
+			"\\([0-9]{5}",
+			" ",
+			"^\\|  ",
+			" \\|",
+			" \\|$",
+			"\\([0-9]{5},",
+			"current_product_name",
+			"$appserver",
+			"email_captcha_fails_max",
+			"ev",
+			"site",
+			",",
+			"require_once",
+			"([0-9]) - ",
+			"$",
+			"^",
+			"upgradepagesidebar",
+			"openx",
+			"product_name",
+			"1600",
+			"parseRefPath",
+			"$restarter->",
+			"last_logon",
+			"consolidation",
+			"logFile",
+			"log",
+			"addSuccessMsg",
+			"fmp",
+			"zeta::",
+			",$",
+			" ",
+			" |",
+			"EXTRA_",
+			"EXTRA_BODY_HEADER",
+			"paycomdb",
+			"effectivedate",
+			"dbi_app",
+			"g_dbi_app",
+			"g_dbi",
+			"recipient",
+			"client",
+			"redirect",
+			"die",
+			"aoj_enabled",
+			"eroticlove",
+			"redirect",
+			"title",
+			"[0-9]{1,3}:",
+			"_test",
+			"union",
+			"display:none",
+			"email",
+			"$preserve_level",
+			"$email_consolidation",
+			"email_consolidation",
+			"rm",
+			"has been terminated",
+			"Please click the Home button below to return to the home page.",
+			"76402",
+			"super+ctrl+a",
+			"control",
+			"package",
+			"super+shift+g",
+			"line",
+			"goto.*line",
+			"admin-tools",
+			"public",
+			"view_in_stack",
+			"log_to_file",
+			"admintools.",
+			"robot"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"mdmailer",
+			"$1) ON DUPLICATE KEY UPDATE entry_date = $1;",
+			"$1) ON DUPLICATE KEY UPDATE entry_date = $1",
+			"INSERT INTO billing_history_customer_id_master VALUES ($1, $2, '$3');",
+			"fuckbooknet.net",
+			"$1|",
+			"|",
+			"'$2' => , // $1",
+			"",
+			"'email_send_per_session_max'",
+			"(NULL",
+			"",
+			"(",
+			",",
+			"),",
+			"(NULL,",
+			" => ,",
+			"$1|",
+			"|",
+			"$this->",
+			"",
+			",",
+			"xxxconnect",
+			"",
+			"|",
+			": support",
+			"'$8' => , // $1",
+			"(30",
+			"' => , ",
+			"",
+			"profile/strings",
+			"Lang::get",
+			"profile/strings",
+			": support",
+			"/",
+			"30",
+			" bil$1",
+			"|",
+			"$1|",
+			"|PL",
+			"",
+			"$1 ",
+			"",
+			"\\n$1",
+			"",
+			": support",
+			", //",
+			"",
+			"=> // ",
+			"' => ",
+			"",
+			"\\n",
+			"text/javascript",
+			"Cyprus",
+			"",
+			"NULL,",
+			"'em",
+			"INSERT INTO business_rule_data VALUES (NULL",
+			" ",
+			"",
+			"(",
+			");",
+			", ",
+			"max', ",
+			"_fresh_;",
+			"",
+			": support",
+			"\\t",
+			"",
+			"\\t",
+			"",
+			"array(",
+			"manplay",
+			"",
+			"\\n\\n\\[10-",
+			"",
+			"UNIX_TIMESTAMP()",
+			"",
+			",",
+			"INSERT INTO",
+			"",
+			"\\n",
+			"",
+			"constants",
+			"_exited",
+			"_starved",
+			"_zombie",
+			"'resources_de/site/default/js/",
+			"/site",
+			"'resources_de/"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 10,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "app/routes.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3995,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3909,
+								3909
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/controllers/GSB/ProfileController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5272,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1006,
+								1073
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 343.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/controllers/GSB/BuddyController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 839,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								791,
+								791
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/controllers/GSB/GroupController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 11704,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1733,
+								1733
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 605.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/models/GSB/Group/GroupEntity.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8722,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6297,
+								6297
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2900.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "app/models/GSB/Profile/ProfileEntity.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6206,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1200,
+								1200
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 230.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "app/models/GSB/Group/GroupMeetingEntity.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2837,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								979,
+								979
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 24.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "app/models/GSB/Group/GroupEloquentRepository.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6718,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1747,
+								1747
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 430.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "app/views/Group/view.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3555,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								3555
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 567.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "app/views/Buddy/view.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3035,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								467,
+								467
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "app/views/Buddy/navigation.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 419,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								414,
+								414
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.sftp":
+	{
+		"height": 0.0
+	},
+	"project": "gsb-4.sublime-project",
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"",
+				"admin/templates/api-access/delete-confirm.tpl"
+			],
+			[
+				"template_manager",
+				"datingengine/www/controller/template_manager/template_manager.class.php"
+			],
+			[
+				"priatelabel_info",
+				"datingengine/www/datingapi/private_label/private_label_info.class.php"
+			],
+			[
+				"private_label_info",
+				"datingengine/www/datingapi/private_label/private_label_info.class.php"
+			],
+			[
+				"template_mana",
+				"datingengine/www/controller/template_manager/template_manager.class.php"
+			],
+			[
+				"datingengine_config",
+				"datingengine/www/datingengine/dispatcher/datingengine_config.ini.php"
+			],
+			[
+				"datingengine_selectors",
+				"datingengine/www/datingengine/dispatcher/datingengine_selectors.inc.php"
+			],
+			[
+				"affiliate_oneclick_create_account",
+				"datingengine/www/datingengine/relay/request_actions/affiliate_oneclick_create_account.php"
+			],
+			[
+				"join_relay_affiliate_",
+				"datingengine/www/datingengine/relay/request_actions/relay/join_relay_affiliate_oneclick_account.class.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 266.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

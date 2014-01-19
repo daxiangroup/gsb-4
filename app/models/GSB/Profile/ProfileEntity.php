@@ -20,15 +20,15 @@ class ProfileEntity extends Entity
     protected $language         = null;
     protected $minimum_complete = null;
 
-    const FLD_ID               = 'id';
-    const FLD_USERNAME         = 'username';
-    const FLD_EMAIL            = 'email';
-    const FLD_PASSWORD         = 'password';
-    const FLD_FULL_NAME        = 'full_name';
-    const FLD_GRADUATING_YEAR  = 'graduating_year';
-    const FLD_BIO              = 'bio';
-    const FLD_LANGUAGE         = 'language';
-    const FLD_MINIMUM_COMPLETE = 'minimum_complete';
+    const FLD_ID                = 'id';
+    const FLD_USERNAME          = 'username';
+    const FLD_EMAIL             = 'email';
+    const FLD_PASSWORD          = 'password';
+    const FLD_FULL_NAME         = 'full_name';
+    const FLD_GRADUATING_YEAR   = 'graduating_year';
+    const FLD_BIO               = 'bio';
+    const FLD_LANGUAGE          = 'language';
+    const FLD_MINIMUM_COMPLETE  = 'minimum_complete';
 
     public function __construct($id = null, $hydrate = false)
     {
@@ -36,7 +36,7 @@ class ProfileEntity extends Entity
             throw new InvalidArgumentException('Id must be an integer');
         }
 
-        $this->id = $id;
+        $this->id     = $id;
         $this->fields = array(
             self::FLD_ID               => 'getId',
             self::FLD_USERNAME         => 'getUsername',

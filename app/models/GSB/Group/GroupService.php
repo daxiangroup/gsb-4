@@ -41,7 +41,7 @@ class GroupService
         // Loop through what was returned from the repository, creating an array
         // of GroupsEntity'ies.
         foreach ($groups as $group) {
-            $output[] = new GroupEntity($group->id, true);
+            $output[] = new GroupEntity((int)$group->id, true);
         }
 
         return $output;

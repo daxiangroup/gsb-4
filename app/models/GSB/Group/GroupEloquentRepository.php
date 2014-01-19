@@ -39,20 +39,30 @@ class GroupEloquentRepository implements GroupRepository
 
     public static function getGroup($id)
     {
-        $data = DB::connection('app_r')
-            ->table('groups')
-            ->leftJoin('profiles AS p1', 'groups.admin_id', '=', 'p1.id')
-            ->leftJoin('profiles AS p2', 'groups.co_admin_id', '=', 'p2.id')
-            ->where('groups.id', '=', $id)
-            ->get(
-                array(
-                    'groups.*',
-                    'p1.full_name',
-                    'p2.full_name AS co_full_name',
-                )
+        try {
+            $data = DB::connection('app_r')
+                ->table('groups')
+                ->leftJoin('profiles AS p1', 'groups.admin_id', '=', 'p1.id')
+                ->leftJoin('profiles AS p2', 'groups.co_admin_id', '=', 'p2.id')
+                ->where('groups.id', '=', $id)
+                ->get(
+                    array(
+                        'groups.*',
+                        'p1.full_name',
+                        'p2.full_name AS co_full_name',
+                    )
             );
+        } catch (\Exception $e) {
+            GSBException::database('Database problem');
+            return false;
+        }
 
-        return (array) $data[0];
+        // TODO: Proper logging of unfound group id
+        if (!count($data)) {
+            return false;
+        }
+
+        return (array)$data[0];
     }
 
     public static function getMyGroups($profile_id)

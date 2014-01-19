@@ -1,12 +1,14 @@
 @extends('Layouts/left40')
 
 @section('content-left')
-@include('Group.navigation')
+@include('Buddy.navigation')
 @stop
 
+{{--
 @section('page-specific-js-footer')
 {{ HTML::script('js/vendors/GSB/group.js') }}
 @stop
+--}}
 
 @section('page-specific-classes')
 group-view @stop
@@ -14,14 +16,14 @@ group-view @stop
 @section('content-right')
 
 <div class="page-header">
-    <h2>{{ $group->getName() }}<br>
-    <small>{{ $group->getHeadline() }}</small></h2>
+    <h2>{{ $buddy->getFullName() }}<br>
+    <small>Graduating: {{ $buddy->getGraduatingYear() }}</small></h2>
 </div>
 
 <div class="row-fluid">
-    <img src="http://placekitten.com/700/85" />
+    Buddy/Profile info goes here
 </div>
-
+{{--
 <div class="row-fluid">
     <div class="span4">
         <div class="row-fluid">
@@ -84,38 +86,5 @@ group-view @stop
         </div>
     </div>
 </div>
-
-
-more content<br>
-more content<br>
-more content<br>
-more content<br>
-more content<br>
-more content<br>
-more content<br>
-more content<br>
-more content<br>
-more content<br>
-more content<br>
-more content<br>
-more content<br>
-more content<br>
-more content<br>
-more content<br>
-more content<br>
-more content<br>
-more content<br>
-more content<br>
-more content<br>
-more content<br>
-more content<br>
-more content<br>
-more content<br>
-more content<br>
-more content<br>
-more content<br>
-more content<br>
-more content<br>
-more content<br>
-more content<br>
+--}}
 @stop

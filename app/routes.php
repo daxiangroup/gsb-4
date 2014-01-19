@@ -57,3 +57,7 @@ Route::get('/group/{id}/edit',   array('as'=>'group.edit',            'uses'=>'G
     ->where('id', '[0-9]+');
 Route::post('/group/{id}/edit',  array('as'=>'group.editSave',        'uses'=>'GSB\GroupController@postGroupEdit'))
     ->where('id', '[0-9]+');
+
+/*****[ Buddy ]****************************************************************/
+Route::get('/buddy/{id}',        array('as'=>'buddy.view',            'uses'=>'GSB\BuddyController@getView'))
+    ->where('id', '[0-9]+');

@@ -1,50 +1,58 @@
 <?php namespace GSB\Group;
 
-use \GSB\Groups\ProfileRepository;
-use \GSB\Base\Entity;
 use \App;
+use \GSB\Base\Entity;
+use \GSB\Groups\ProfileRepository;
+use \GSB\Profile\ProfileEntity;
+use \InvalidArgumentException;
 use \Lang;
 
 class GroupEntity extends Entity
 {
-    protected $id = null;
-    protected $name = null;
-    protected $graduating_year = null;
-    protected $admin_id = null;
-    protected $admin_name = null;
-    protected $co_admin_id = null;
-    protected $co_admin_name = null;
-    protected $max_size = null;
-    protected $headline = null;
-    protected $description = null;
-    protected $visibility = null;
-    protected $buddies_approval = null;
-    protected $meetings = null;
-    protected $buddies = null;
+    protected $id                         = null;
+    protected $name                       = null;
+    protected $graduating_year            = null;
+    protected $admin_id                   = null;
+    protected $admin_name                 = null;
+    protected $co_admin_id                = null;
+    protected $co_admin_name              = null;
+    protected $max_size                   = null;
+    protected $headline                   = null;
+    protected $description                = null;
+    protected $visibility                 = null;
+    protected $buddies_approval           = null;
+    protected $meetings                   = null;
+    protected $buddies                    = null;
 
-    const FLD_ID = 'id';
-    const FLD_NAME = 'name';
-    const FLD_GRADUATING_YEAR = 'graduating_year';
-    const FLD_ADMIN_ID = 'admin_id';
-    const FLD_ADMIN_NAME = 'admin_name';
-    const FLD_CO_ADMIN_ID = 'co_admin_id';
-    const FLD_CO_ADMIN_NAME = 'co_admin_name';
-    const FLD_MAX_SIZE = 'max_size';
-    const FLD_HEADLINE = 'headline';
-    const FLD_DESCRIPTION = 'description';
-    const FLD_VISIBILITY = 'visibility';
-    const FLD_BUDDIES_APPROVAL = 'buddies_approval';
-    const FLD_MEETINGS = 'meetings';
-    const FLD_BUDDIES = 'buddies';
+    protected $hydrated                   = false;
 
-    const VAL_VISIBILITY_OPEN = 0;
-    const VAL_VISIBILITY_CLOSED = 1;
-    const VAL_VISIBILITY_PRIVATE = 2;
+    const FLD_ID                          = 'id';
+    const FLD_NAME                        = 'name';
+    const FLD_GRADUATING_YEAR             = 'graduating_year';
+    const FLD_ADMIN_ID                    = 'admin_id';
+    const FLD_ADMIN_NAME                  = 'admin_name';
+    const FLD_CO_ADMIN_ID                 = 'co_admin_id';
+    const FLD_CO_ADMIN_NAME               = 'co_admin_name';
+    const FLD_MAX_SIZE                    = 'max_size';
+    const FLD_HEADLINE                    = 'headline';
+    const FLD_DESCRIPTION                 = 'description';
+    const FLD_VISIBILITY                  = 'visibility';
+    const FLD_BUDDIES_APPROVAL            = 'buddies_approval';
+    const FLD_MEETINGS                    = 'meetings';
+    const FLD_BUDDIES                     = 'buddies';
+
+    const VAL_VISIBILITY_OPEN             = 0;
+    const VAL_VISIBILITY_CLOSED           = 1;
+    const VAL_VISIBILITY_PRIVATE          = 2;
     const VAL_BUDDIES_APPROVAL_UNAPPROVED = 0;
-    const VAL_BUDDIES_APPROVAL_APPROVED = 1;
+    const VAL_BUDDIES_APPROVAL_APPROVED   = 1;
 
     public function __construct($id = null, $hydrate = false)
     {
+        if (!is_null($id) && !is_int($id)) {
+            throw new InvalidArgumentException('Id must be an integer');
+        }
+
         $this->id = $id;
         $this->fields += array(
             self::FLD_ID               => 'getId',
@@ -63,8 +71,12 @@ class GroupEntity extends Entity
             self::FLD_BUDDIES          => 'getBuddies',
         );
 
+        if (is_null($id)) {
+            $hydrate = false;
+        }
+
         if ($hydrate === true) {
-            $this->hydrate();
+            $this->setHydrated($this->hydrate());
         }
 
         return $this;
@@ -210,8 +222,18 @@ class GroupEntity extends Entity
     public function setBuddies($buddies)
     {
         foreach ($buddies as $buddy) {
-            $this->{self::FLD_BUDDIES}[$buddy->profile_id] = $buddy;
+            $this->{self::FLD_BUDDIES}[$buddy->profile_id] = new ProfileEntity((int)$buddy->profile_id, true);
         }
+    }
+
+    public function getHydrated()
+    {
+        return $this->hydrated;
+    }
+
+    private function setHydrated($hydrated = true)
+    {
+        $this->hydrated = $hydrated;
     }
 
     public function getBuddyCount()
@@ -256,9 +278,15 @@ class GroupEntity extends Entity
         $GroupRepository = App::make('GroupRepository');
 
         $group           = $GroupRepository::getGroup($this->{self::FLD_ID});
+
+        if ($group === false) {
+            return false;
+        }
+
         $group_meetings  = $GroupRepository::getGroupMeetings($this->{self::FLD_ID});
         $group_buddies   = $GroupRepository::getGroupBuddies($this->{self::FLD_ID});
 
+        // TODO: fix the full_name and co_full_name array elements here
         $this->setName($group[self::FLD_NAME] != '' ? $group[self::FLD_NAME] : '');
         $this->setGraduatingYear($group[self::FLD_GRADUATING_YEAR] != '' ? $group[self::FLD_GRADUATING_YEAR] : '');
         $this->setAdminId($group[self::FLD_ADMIN_ID]);
@@ -274,5 +302,7 @@ class GroupEntity extends Entity
         $this->setMeetings($group_meetings);
 
         $this->setBuddies($group_buddies);
+
+        return true;
     }
 }

@@ -6,35 +6,35 @@ use \GSB\Base\Entity;
 
 class GroupMeetingEntity extends Entity
 {
-    protected $id = null;
-    protected $group_id = null;
-    protected $day = null;
+    protected $id         = null;
+    protected $group_id   = null;
+    protected $day        = null;
     protected $time_start = null;
-    protected $time_end = null;
+    protected $time_end   = null;
 
-    protected $fields = array();
+    protected $hydrated   = false;
 
-    const FLD_ID = 'id';
-    const FLD_GROUP_ID = 'group_id';
-    const FLD_DAY = 'day';
-    const FLD_TIME_START = 'time_start';
-    const FLD_TIME_END = 'time_end';
-    const FLD_NOTES = 'notes';
+    const FLD_ID          = 'id';
+    const FLD_GROUP_ID    = 'group_id';
+    const FLD_DAY         = 'day';
+    const FLD_TIME_START  = 'time_start';
+    const FLD_TIME_END    = 'time_end';
+    const FLD_NOTES       = 'notes';
 
     public function __construct($id = null, $hydrate = false)
     {
-        $this->id = $id;
+        $this->id     = $id;
         $this->fields = array(
-            self::FLD_ID => 'getId',
-            self::FLD_GROUP_ID => 'getGroupId',
-            self::FLD_DAY => 'getDay',
+            self::FLD_ID         => 'getId',
+            self::FLD_GROUP_ID   => 'getGroupId',
+            self::FLD_DAY        => 'getDay',
             self::FLD_TIME_START => 'getTimeStart',
-            self::FLD_TIME_END => 'getTimeEnd',
-            self::FLD_NOTES => 'getNotes',
+            self::FLD_TIME_END   => 'getTimeEnd',
+            self::FLD_NOTES      => 'getNotes',
         );
 
         if ($hydrate === true) {
-            $this->hydrate();
+            $this->setHydrated($this->hydrate());
         }
 
         return $this;
@@ -100,6 +100,16 @@ class GroupMeetingEntity extends Entity
         $this->{self::FLD_NOTES} = $notes;
     }
 
+    public function getHydrated()
+    {
+        return $this->hydrated;
+    }
+
+    private function setHydrated($hydrated = true)
+    {
+        $this->hydrated = $hydrated;
+    }
+
     public function hydrate()
     {
         $GroupRepository = App::make('GroupRepository');
@@ -111,5 +121,7 @@ class GroupMeetingEntity extends Entity
         $this->setTimeStart($meeting[self::FLD_TIME_START]);
         $this->setTimeEnd($meeting[self::FLD_TIME_END]);
         $this->setNotes($meeting[self::FLD_NOTES]);
+
+        return true;
     }
 }

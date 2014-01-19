@@ -63,7 +63,13 @@ class GroupController extends BaseController {
 
     public function getGroupView($id)
     {
-        $group = new GroupEntity(Request::segment(2), true);
+        $group_id = (int)Request::segment(2);
+        $group    = new GroupEntity($group_id, true);
+
+        // TODO: properly set an flashed error message
+        if ($group->getHydrated() === false) {
+            return Redirect::route('group');
+        }
 
         return View::make('group.view')
             ->with('active_link', 'group')
